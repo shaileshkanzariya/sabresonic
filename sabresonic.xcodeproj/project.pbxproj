@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08ADB772171F2F16003E0107 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB76D171F2F16003E0107 /* Route.m */; };
+		08ADB773171F2F16003E0107 /* TravelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB76F171F2F16003E0107 /* TravelInfo.m */; };
+		08ADB774171F2F16003E0107 /* TravelPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */; };
+		08ADB778171F2F64003E0107 /* MapOverlayArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB777171F2F64003E0107 /* MapOverlayArcView.m */; };
+		08ADB77A171F30A1003E0107 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08ADB779171F30A1003E0107 /* CoreLocation.framework */; };
+		08ADB77C171F30AA003E0107 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08ADB77B171F30AA003E0107 /* MapKit.framework */; };
+		08ADB783171F4127003E0107 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB781171F4127003E0107 /* MapViewController.m */; };
+		08ADB784171F4127003E0107 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB782171F4127003E0107 /* MapViewController.xib */; };
+		08ADB78817204360003E0107 /* CheckInWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7861720435F003E0107 /* CheckInWebViewController.m */; };
+		08ADB78917204360003E0107 /* CheckInWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB7871720435F003E0107 /* CheckInWebViewController.xib */; };
+		08ADB7CE17207F4F003E0107 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */; };
 		492EE5B11714682400575B7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B01714682400575B7C /* UIKit.framework */; };
 		492EE5B31714682400575B7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B21714682400575B7C /* Foundation.framework */; };
 		492EE5B51714682400575B7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B41714682400575B7C /* CoreGraphics.framework */; };
@@ -17,12 +28,26 @@
 		492EE5C51714682400575B7C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE5C41714682400575B7C /* Default@2x.png */; };
 		492EE5C71714682400575B7C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE5C61714682400575B7C /* Default-568h@2x.png */; };
 		492EE5CA1714682400575B7C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492EE5C81714682400575B7C /* MainStoryboard.storyboard */; };
-		492EE5CD1714682400575B7C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE5CC1714682400575B7C /* ViewController.m */; };
 		492EE5D51714682400575B7C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5D41714682400575B7C /* SenTestingKit.framework */; };
 		492EE5D61714682400575B7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B01714682400575B7C /* UIKit.framework */; };
 		492EE5D71714682400575B7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B21714682400575B7C /* Foundation.framework */; };
 		492EE5DF1714682400575B7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 492EE5DD1714682400575B7C /* InfoPlist.strings */; };
 		492EE5E21714682400575B7C /* sabresonicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE5E11714682400575B7C /* sabresonicTests.m */; };
+		492EE5EC1715FFA500575B7C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5EB1715FFA500575B7C /* QuartzCore.framework */; };
+		492EE622171F136700575B7C /* FrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE619171F136500575B7C /* FrontViewController.m */; };
+		492EE623171F136700575B7C /* LeftDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE61B171F136500575B7C /* LeftDemoViewController.m */; };
+		492EE624171F136700575B7C /* LeftDemoViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492EE61C171F136600575B7C /* LeftDemoViewController~ipad.xib */; };
+		492EE625171F136700575B7C /* LeftDemoViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492EE61D171F136600575B7C /* LeftDemoViewController~iphone.xib */; };
+		492EE626171F136700575B7C /* RightDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE61F171F136600575B7C /* RightDemoViewController.m */; };
+		492EE627171F136700575B7C /* RightDemoViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492EE620171F136700575B7C /* RightDemoViewController~ipad.xib */; };
+		492EE628171F136700575B7C /* RightDemoViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492EE621171F136700575B7C /* RightDemoViewController~iphone.xib */; };
+		492EE630171F13C800575B7C /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE62B171F13C800575B7C /* PKRevealController.m */; };
+		492EE631171F13C800575B7C /* PKRevealControllerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE62D171F13C800575B7C /* PKRevealControllerContainerView.m */; };
+		492EE632171F13C800575B7C /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492EE62F171F13C800575B7C /* UIViewController+PKRevealController.m */; };
+		492EE637171F142600575B7C /* reveal_menu_icon_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE633171F142600575B7C /* reveal_menu_icon_landscape.png */; };
+		492EE638171F142600575B7C /* reveal_menu_icon_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */; };
+		492EE639171F142600575B7C /* reveal_menu_icon_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */; };
+		492EE63A171F142600575B7C /* reveal_menu_icon_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +61,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08ADB76C171F2F16003E0107 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = Models/Route.h; sourceTree = "<group>"; };
+		08ADB76D171F2F16003E0107 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = Models/Route.m; sourceTree = "<group>"; };
+		08ADB76E171F2F16003E0107 /* TravelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelInfo.h; path = Models/TravelInfo.h; sourceTree = "<group>"; };
+		08ADB76F171F2F16003E0107 /* TravelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelInfo.m; path = Models/TravelInfo.m; sourceTree = "<group>"; };
+		08ADB770171F2F16003E0107 /* TravelPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelPointAnnotation.h; path = Models/TravelPointAnnotation.h; sourceTree = "<group>"; };
+		08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelPointAnnotation.m; path = Models/TravelPointAnnotation.m; sourceTree = "<group>"; };
+		08ADB776171F2F64003E0107 /* MapOverlayArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOverlayArcView.h; path = Content/Map/MapOverlayArcView.h; sourceTree = "<group>"; };
+		08ADB777171F2F64003E0107 /* MapOverlayArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlayArcView.m; path = Content/Map/MapOverlayArcView.m; sourceTree = "<group>"; };
+		08ADB779171F30A1003E0107 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		08ADB77B171F30AA003E0107 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		08ADB780171F4127003E0107 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		08ADB781171F4127003E0107 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		08ADB782171F4127003E0107 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		08ADB7851720435F003E0107 /* CheckInWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInWebViewController.h; sourceTree = "<group>"; };
+		08ADB7861720435F003E0107 /* CheckInWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInWebViewController.m; sourceTree = "<group>"; };
+		08ADB7871720435F003E0107 /* CheckInWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInWebViewController.xib; sourceTree = "<group>"; };
+		08ADB7CC17207F4E003E0107 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		492EE5AD1714682400575B7C /* sabresonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sabresonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EE5B01714682400575B7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		492EE5B21714682400575B7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,14 +93,33 @@
 		492EE5C41714682400575B7C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		492EE5C61714682400575B7C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		492EE5C91714682400575B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		492EE5CB1714682400575B7C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		492EE5CC1714682400575B7C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		492EE5D31714682400575B7C /* sabresonicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sabresonicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EE5D41714682400575B7C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		492EE5DC1714682400575B7C /* sabresonicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sabresonicTests-Info.plist"; sourceTree = "<group>"; };
 		492EE5DE1714682400575B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		492EE5E01714682400575B7C /* sabresonicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sabresonicTests.h; sourceTree = "<group>"; };
 		492EE5E11714682400575B7C /* sabresonicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sabresonicTests.m; sourceTree = "<group>"; };
+		492EE5EB1715FFA500575B7C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		492EE618171F136500575B7C /* FrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrontViewController.h; path = Content/FrontViewController.h; sourceTree = "<group>"; };
+		492EE619171F136500575B7C /* FrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrontViewController.m; path = Content/FrontViewController.m; sourceTree = "<group>"; };
+		492EE61A171F136500575B7C /* LeftDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftDemoViewController.h; path = Content/LeftDemoViewController.h; sourceTree = "<group>"; };
+		492EE61B171F136500575B7C /* LeftDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftDemoViewController.m; path = Content/LeftDemoViewController.m; sourceTree = "<group>"; };
+		492EE61C171F136600575B7C /* LeftDemoViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LeftDemoViewController~ipad.xib"; path = "Content/LeftDemoViewController~ipad.xib"; sourceTree = "<group>"; };
+		492EE61D171F136600575B7C /* LeftDemoViewController~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "LeftDemoViewController~iphone.xib"; path = "Content/LeftDemoViewController~iphone.xib"; sourceTree = "<group>"; };
+		492EE61E171F136600575B7C /* RightDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightDemoViewController.h; path = Content/RightDemoViewController.h; sourceTree = "<group>"; };
+		492EE61F171F136600575B7C /* RightDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightDemoViewController.m; path = Content/RightDemoViewController.m; sourceTree = "<group>"; };
+		492EE620171F136700575B7C /* RightDemoViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "RightDemoViewController~ipad.xib"; path = "Content/RightDemoViewController~ipad.xib"; sourceTree = "<group>"; };
+		492EE621171F136700575B7C /* RightDemoViewController~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "RightDemoViewController~iphone.xib"; path = "Content/RightDemoViewController~iphone.xib"; sourceTree = "<group>"; };
+		492EE62A171F13C800575B7C /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Controller/PKRevealController.h; sourceTree = "<group>"; };
+		492EE62B171F13C800575B7C /* PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKRevealController.m; path = Controller/PKRevealController.m; sourceTree = "<group>"; };
+		492EE62C171F13C800575B7C /* PKRevealControllerContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealControllerContainerView.h; path = Controller/PKRevealControllerContainerView.h; sourceTree = "<group>"; };
+		492EE62D171F13C800575B7C /* PKRevealControllerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKRevealControllerContainerView.m; path = Controller/PKRevealControllerContainerView.m; sourceTree = "<group>"; };
+		492EE62E171F13C800575B7C /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Controller/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		492EE62F171F13C800575B7C /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PKRevealController.m"; path = "Controller/UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
+		492EE633171F142600575B7C /* reveal_menu_icon_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reveal_menu_icon_landscape.png; sourceTree = "<group>"; };
+		492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_landscape@2x.png"; sourceTree = "<group>"; };
+		492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reveal_menu_icon_portrait.png; sourceTree = "<group>"; };
+		492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_portrait@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492EE5EC1715FFA500575B7C /* QuartzCore.framework in Frameworks */,
+				08ADB77C171F30AA003E0107 /* MapKit.framework in Frameworks */,
+				08ADB77A171F30A1003E0107 /* CoreLocation.framework in Frameworks */,
 				492EE5B11714682400575B7C /* UIKit.framework in Frameworks */,
 				492EE5B31714682400575B7C /* Foundation.framework in Frameworks */,
 				492EE5B51714682400575B7C /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +149,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08ADB76B171F2EF7003E0107 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB76C171F2F16003E0107 /* Route.h */,
+				08ADB76D171F2F16003E0107 /* Route.m */,
+				08ADB76E171F2F16003E0107 /* TravelInfo.h */,
+				08ADB76F171F2F16003E0107 /* TravelInfo.m */,
+				08ADB770171F2F16003E0107 /* TravelPointAnnotation.h */,
+				08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		08ADB775171F2F53003E0107 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB776171F2F64003E0107 /* MapOverlayArcView.h */,
+				08ADB777171F2F64003E0107 /* MapOverlayArcView.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		492EE5A41714682400575B7C = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +193,9 @@
 		492EE5AF1714682400575B7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08ADB77B171F30AA003E0107 /* MapKit.framework */,
+				08ADB779171F30A1003E0107 /* CoreLocation.framework */,
+				492EE5EB1715FFA500575B7C /* QuartzCore.framework */,
 				492EE5B01714682400575B7C /* UIKit.framework */,
 				492EE5B21714682400575B7C /* Foundation.framework */,
 				492EE5B41714682400575B7C /* CoreGraphics.framework */,
@@ -117,11 +207,12 @@
 		492EE5B61714682400575B7C /* sabresonic */ = {
 			isa = PBXGroup;
 			children = (
+				492EE629171F13BA00575B7C /* Controller */,
+				08ADB76B171F2EF7003E0107 /* Models */,
+				492EE60817160ABF00575B7C /* Content */,
 				492EE5BF1714682400575B7C /* AppDelegate.h */,
 				492EE5C01714682400575B7C /* AppDelegate.m */,
 				492EE5C81714682400575B7C /* MainStoryboard.storyboard */,
-				492EE5CB1714682400575B7C /* ViewController.h */,
-				492EE5CC1714682400575B7C /* ViewController.m */,
 				492EE5B71714682400575B7C /* Supporting Files */,
 			);
 			path = sabresonic;
@@ -130,6 +221,10 @@
 		492EE5B71714682400575B7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				492EE633171F142600575B7C /* reveal_menu_icon_landscape.png */,
+				492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */,
+				492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */,
+				492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */,
 				492EE5B81714682400575B7C /* sabresonic-Info.plist */,
 				492EE5B91714682400575B7C /* InfoPlist.strings */,
 				492EE5BC1714682400575B7C /* main.m */,
@@ -158,6 +253,45 @@
 				492EE5DD1714682400575B7C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		492EE60817160ABF00575B7C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB775171F2F53003E0107 /* Map */,
+				492EE618171F136500575B7C /* FrontViewController.h */,
+				492EE619171F136500575B7C /* FrontViewController.m */,
+				492EE61A171F136500575B7C /* LeftDemoViewController.h */,
+				492EE61B171F136500575B7C /* LeftDemoViewController.m */,
+				492EE61C171F136600575B7C /* LeftDemoViewController~ipad.xib */,
+				492EE61D171F136600575B7C /* LeftDemoViewController~iphone.xib */,
+				492EE61E171F136600575B7C /* RightDemoViewController.h */,
+				492EE61F171F136600575B7C /* RightDemoViewController.m */,
+				492EE620171F136700575B7C /* RightDemoViewController~ipad.xib */,
+				492EE621171F136700575B7C /* RightDemoViewController~iphone.xib */,
+				08ADB780171F4127003E0107 /* MapViewController.h */,
+				08ADB781171F4127003E0107 /* MapViewController.m */,
+				08ADB782171F4127003E0107 /* MapViewController.xib */,
+				08ADB7851720435F003E0107 /* CheckInWebViewController.h */,
+				08ADB7861720435F003E0107 /* CheckInWebViewController.m */,
+				08ADB7871720435F003E0107 /* CheckInWebViewController.xib */,
+				08ADB7CC17207F4E003E0107 /* CustomTableViewCell.h */,
+				08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */,
+			);
+			name = Content;
+			sourceTree = "<group>";
+		};
+		492EE629171F13BA00575B7C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				492EE62A171F13C800575B7C /* PKRevealController.h */,
+				492EE62B171F13C800575B7C /* PKRevealController.m */,
+				492EE62C171F13C800575B7C /* PKRevealControllerContainerView.h */,
+				492EE62D171F13C800575B7C /* PKRevealControllerContainerView.m */,
+				492EE62E171F13C800575B7C /* UIViewController+PKRevealController.h */,
+				492EE62F171F13C800575B7C /* UIViewController+PKRevealController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +370,16 @@
 				492EE5C51714682400575B7C /* Default@2x.png in Resources */,
 				492EE5C71714682400575B7C /* Default-568h@2x.png in Resources */,
 				492EE5CA1714682400575B7C /* MainStoryboard.storyboard in Resources */,
+				492EE624171F136700575B7C /* LeftDemoViewController~ipad.xib in Resources */,
+				492EE625171F136700575B7C /* LeftDemoViewController~iphone.xib in Resources */,
+				492EE627171F136700575B7C /* RightDemoViewController~ipad.xib in Resources */,
+				492EE628171F136700575B7C /* RightDemoViewController~iphone.xib in Resources */,
+				492EE637171F142600575B7C /* reveal_menu_icon_landscape.png in Resources */,
+				492EE638171F142600575B7C /* reveal_menu_icon_landscape@2x.png in Resources */,
+				492EE639171F142600575B7C /* reveal_menu_icon_portrait.png in Resources */,
+				492EE63A171F142600575B7C /* reveal_menu_icon_portrait@2x.png in Resources */,
+				08ADB784171F4127003E0107 /* MapViewController.xib in Resources */,
+				08ADB78917204360003E0107 /* CheckInWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +416,19 @@
 			files = (
 				492EE5BD1714682400575B7C /* main.m in Sources */,
 				492EE5C11714682400575B7C /* AppDelegate.m in Sources */,
-				492EE5CD1714682400575B7C /* ViewController.m in Sources */,
+				492EE622171F136700575B7C /* FrontViewController.m in Sources */,
+				492EE623171F136700575B7C /* LeftDemoViewController.m in Sources */,
+				492EE626171F136700575B7C /* RightDemoViewController.m in Sources */,
+				492EE630171F13C800575B7C /* PKRevealController.m in Sources */,
+				492EE631171F13C800575B7C /* PKRevealControllerContainerView.m in Sources */,
+				492EE632171F13C800575B7C /* UIViewController+PKRevealController.m in Sources */,
+				08ADB772171F2F16003E0107 /* Route.m in Sources */,
+				08ADB773171F2F16003E0107 /* TravelInfo.m in Sources */,
+				08ADB774171F2F16003E0107 /* TravelPointAnnotation.m in Sources */,
+				08ADB778171F2F64003E0107 /* MapOverlayArcView.m in Sources */,
+				08ADB783171F4127003E0107 /* MapViewController.m in Sources */,
+				08ADB78817204360003E0107 /* CheckInWebViewController.m in Sources */,
+				08ADB7CE17207F4F003E0107 /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +611,7 @@
 				492EE5E71714682400575B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		492EE5E81714682400575B7C /* Build configuration list for PBXNativeTarget "sabresonicTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +620,7 @@
 				492EE5EA1714682400575B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

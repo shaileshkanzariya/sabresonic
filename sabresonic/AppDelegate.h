@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FrontViewController.h"
+#import "MapViewController.h"
+
+@class PKRevealController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+{
+    UINavigationController *frontViewNavController;
+    UINavigationController *mapViewNavController;
+    UINavigationController *checkInWebViewNavController;
+}
+@property (nonatomic, strong, readwrite) PKRevealController *revealController;
+@property (nonatomic, strong) UINavigationController *frontViewNavController;
+@property (nonatomic, strong) UINavigationController *mapViewNavController;
+@property (nonatomic, strong) UINavigationController *checkInWebViewNavController;
+@property (nonatomic, strong) UIWindow *window;
 
 @end
