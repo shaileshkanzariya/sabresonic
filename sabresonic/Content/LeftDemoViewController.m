@@ -151,7 +151,26 @@
 {
         //save selected indexpath
         self.selectedRawIndexPath = indexPath;
+
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]; //get custom cell
+        NSLog(@"height = %f",cell.frame.size.height);
+        if(indexPath.row == 0)
+        {
+            if(cell.frame.size.height > 100)
+            {
+                self.isCellExpanded = NO;
+            }
+            else
+            {
+                self.isCellExpanded = YES;
+            }
+        }
+        else
+        {
+            self.isCellExpanded = NO;
+        }
         [tableView reloadData];
+        /*
         if(indexPath.row == 0)
         {
             if(self.isCellExpanded == YES)
@@ -163,6 +182,7 @@
                 self.isCellExpanded = YES;
             }
         }
+        */
     
         [tableView beginUpdates];
         [tableView endUpdates];
