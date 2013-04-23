@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import <MapKit/MKPointAnnotation.h>
+#import "CalendarAndDestinationShoppingResponse.h"
 
 @interface TravelInfo : NSObject
 {
@@ -26,16 +27,24 @@
     NSString *travelAttractions;
     //possible available routes between origin and destination
     NSArray *travelRoutes;
+    
+    NSMutableArray *singledateShopping; //array of Itineraries (Itinrary)
+    CalendarAndDestinationShoppingResponse *calendarOrDestinationShopping; //array of LeadPrices
 }
-@property(nonatomic,retain)CLLocation *originLocation;
-@property(nonatomic,retain)CLLocation *destinationLocation;
+@property(nonatomic,strong)CLLocation *originLocation;
+@property(nonatomic,strong)CLLocation *destinationLocation;
 @property(nonatomic,assign)int stops;
 @property(nonatomic,assign)double cost;
-@property(nonatomic,retain)NSString *travelAttractions;
-@property(nonatomic,retain)NSArray *travelRoutes;
+@property(nonatomic,strong)NSString *travelAttractions;
+@property(nonatomic,strong)NSArray *travelRoutes;
+@property(nonatomic,strong)NSMutableArray *singledateShopping;
+@property(nonatomic,strong)CalendarAndDestinationShoppingResponse *calendarOrDestinationShopping;
 
 //functions
 +(id)createDummyInstance;
 -(void)setAnnotaionsAndOverlayOnMapview:(MKMapView*)mapView;
+-(void)parseJSONResponseAndFillObjects:(NSString*)jsonResponse ForShoppingType:(NSString*)shoppingType;
+-(void)parseSingleDateShoppingJSONResponse:(NSString*)jsonResponse;
+-(void)parseCalendarOrDestinationShoppingJSONResponse:(NSString*)jsonResponse;
 
 @end

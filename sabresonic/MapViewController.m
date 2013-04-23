@@ -10,6 +10,7 @@
 #import "MapOverlayArcView.h"
 #import "PKRevealController.h"
 
+
 @interface MapViewController ()
 
 @end
@@ -104,6 +105,17 @@
 //pin detail disclouser button tapped
 -(void)myShowDetailsMethod:(id)sender
 {
+    /*
+    NSError *err;
+    NSStringEncoding *strEncoding = NULL;
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:@"json" ofType:@"txt"];
+    NSString *response = [NSString stringWithContentsOfFile:fullPath usedEncoding:strEncoding error:&err];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    NSDictionary *dict = [parser objectWithString:response error:&err];
+    NSDictionary*itineraries =  [dict objectForKey:@"FlightSearchRS"];
+    NSArray *itns = [itineraries objectForKey:@"Itineraries"];
+    NSLog(@"File error : %@", [err description]);
+    */
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Map App" message:@"I am tapped" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'KalTests' target in the 'KalTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

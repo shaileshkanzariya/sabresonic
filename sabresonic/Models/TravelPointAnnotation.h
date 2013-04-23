@@ -30,8 +30,8 @@ enum PinType
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign) enum PinType pinType;
 @property (nonatomic, assign) double cost;
-@property (nonatomic, readonly, copy) NSString *title;
-@property (nonatomic, readonly, copy) NSString *subtitle;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *subtitle;
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord ForTitleString:(NSString*)titleString;
 @end

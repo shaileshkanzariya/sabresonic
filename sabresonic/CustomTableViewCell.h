@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Kal.h"
 
-@interface CustomTableViewCell : UITableViewCell
+@interface CustomTableViewCell : UITableViewCell <UITableViewDelegate>
 {
-
+    KalViewController *kalVC;
 }
+@property(nonatomic, strong)KalViewController *kalVC;
 
 @end

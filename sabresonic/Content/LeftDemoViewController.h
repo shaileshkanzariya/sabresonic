@@ -8,22 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomTableViewCell.h"
+#import "Kal.h"
 
-@interface LeftDemoViewController : UIViewController
+@interface LeftDemoViewController : UIViewController <UITableViewDelegate>
 {
     NSArray *tableViewDataSourceArray;
     UITableView *leftDemoTableView;
     NSIndexPath *selectedRawIndexPath;
-    IBOutlet CustomTableViewCell *customCell;
     BOOL isCellExpanded;
+    KalViewController *kalVC;
 }
 #pragma mark - Propertires
 @property(nonatomic, strong)NSArray *tableViewDataSourceArray;
 @property(nonatomic, strong)UITableView *leftDemoTableView;
 @property(nonatomic, strong)NSIndexPath *selectedRawIndexPath;
-@property(nonatomic, strong)IBOutlet CustomTableViewCell *customCell;
 @property(nonatomic, assign)BOOL isCellExpanded;
-
+@property(nonatomic, strong)KalViewController *kalVC;
 #pragma mark - Methods
 - (IBAction)showOppositeView:(id)sender;
 - (IBAction)togglePresentationMode:(id)sender;

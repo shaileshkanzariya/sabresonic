@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FrontViewController.h"
 #import "MapViewController.h"
+#import "TravelInfo.h"
 
 @class PKRevealController;
 
@@ -17,11 +18,13 @@
     UINavigationController *frontViewNavController;
     UINavigationController *mapViewNavController;
     UINavigationController *checkInWebViewNavController;
+    TravelInfo *travelInfo;
 }
 @property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (nonatomic, strong) UINavigationController *frontViewNavController;
 @property (nonatomic, strong) UINavigationController *mapViewNavController;
 @property (nonatomic, strong) UINavigationController *checkInWebViewNavController;
+@property (nonatomic, strong) TravelInfo *travelInfo;
 @property (nonatomic, strong) UIWindow *window;
 
 @end

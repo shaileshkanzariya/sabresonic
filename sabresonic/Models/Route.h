@@ -19,7 +19,7 @@
 {
     NSArray* points;
 }
-@property(nonatomic,retain)NSArray *points;
+@property(nonatomic,strong)NSArray *points;
 
 -(NSArray*)getAnnotationsForRoute;
 -(MKOverlayView*)getOverlayForRoute;

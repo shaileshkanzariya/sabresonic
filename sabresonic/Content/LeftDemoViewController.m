@@ -13,7 +13,7 @@
 #import "CustomTableViewCell.h"
 
 @implementation LeftDemoViewController
-@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded, customCell;
+@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded, kalVC;
 
 #pragma mark - View Lifecycle
 
@@ -21,12 +21,13 @@
 {
     [super viewDidLoad];
     //set data for left=table view
- 
+    //self.kalVC = [[KalViewController alloc] init];
+    //[self.kalVC.view setFrame:CGRectMake(10, 30, 0, 0)];
     self.isCellExpanded = NO;
     self.tableViewDataSourceArray = [NSArray arrayWithObjects:@"Shop/Book",@"Check-in", nil];
     
     // Each view can dynamically specify the min/max width that can be revealed.
-    [self.revealController setMinimumWidth:280.0f maximumWidth:324.0f forViewController:self];
+    [self.revealController setMinimumWidth:340.0f maximumWidth:324.0f forViewController:self];
 }
 
 #pragma mark - API
@@ -55,13 +56,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        return [self.tableViewDataSourceArray count];
+    return [self.tableViewDataSourceArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +69,13 @@
     
             if(indexPath.row == 0 && self.isCellExpanded == YES)
             {
-                return self.customCell;
+                CustomTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"MyCustomIdentifier"];
+                if(customCell == nil)
+                {
+                    customCell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCustomIdentifier"];
+                }
+                //[self.customCell addSubview:self.kalVC.view];
+                return customCell;
             }
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
             if (cell == nil)

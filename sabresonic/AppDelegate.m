@@ -14,9 +14,10 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import "CheckInWebViewController.h"
+#import "PayLoadKeys.h"
 
 @implementation AppDelegate
-@synthesize  frontViewNavController,mapViewNavController,checkInWebViewNavController;
+@synthesize  frontViewNavController,mapViewNavController,checkInWebViewNavController, travelInfo;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -46,6 +47,21 @@
     
     // Step 4: Set it as your root view controller.
     self.window.rootViewController = self.revealController;
+    
+    //Load & parse JSON. Fill up it into objects
+    self.travelInfo = [[TravelInfo alloc] init];
+    NSError *err;
+    NSStringEncoding *strEncoding = NULL;
+    
+    NSString *fullPathSD = [[NSBundle mainBundle] pathForResource:@"singledatejson" ofType:@"txt"];
+    NSString *responseSD = [NSString stringWithContentsOfFile:fullPathSD usedEncoding:strEncoding error:&err];
+    [self.travelInfo parseJSONResponseAndFillObjects:responseSD ForShoppingType:SINGLE_DATE_SHOPPING];
+    
+    
+    //Parse Calendar Or Destination Shopping
+    NSString *fullPathCD = [[NSBundle mainBundle] pathForResource:@"calendaranddestinationjson" ofType:@"txt"];
+    NSString *responseCD = [NSString stringWithContentsOfFile:fullPathCD usedEncoding:strEncoding error:&err];
+    [self.travelInfo parseJSONResponseAndFillObjects:responseCD ForShoppingType:CALENDARE_SHOPPING];
     
     [self.window makeKeyAndVisible];
     return YES;

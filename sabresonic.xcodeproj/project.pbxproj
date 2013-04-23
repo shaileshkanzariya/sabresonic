@@ -18,6 +18,19 @@
 		08ADB78817204360003E0107 /* CheckInWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7861720435F003E0107 /* CheckInWebViewController.m */; };
 		08ADB78917204360003E0107 /* CheckInWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB7871720435F003E0107 /* CheckInWebViewController.xib */; };
 		08ADB7CE17207F4F003E0107 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */; };
+		08ADB7F61721A1C3003E0107 /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB7F51721A1C3003E0107 /* Kal.bundle */; };
+		08ADB7F81721A5C9003E0107 /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08ADB7F01721A061003E0107 /* libKal.a */; };
+		08ADB8051721CB5A003E0107 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7FC1721CB5A003E0107 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08ADB8061721CB5A003E0107 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB7FE1721CB5A003E0107 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08ADB8071721CB5A003E0107 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8001721CB5A003E0107 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08ADB8081721CB5A003E0107 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8021721CB5A003E0107 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08ADB8091721CB5A003E0107 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8041721CB5A003E0107 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08ADB80C1721E5C7003E0107 /* singledatejson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB80B1721E5C7003E0107 /* singledatejson.txt */; };
+		08ADB81617258C37003E0107 /* FlightSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81517258C37003E0107 /* FlightSegment.m */; };
+		08ADB81917258D11003E0107 /* SingleDateShoppingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */; };
+		08ADB81F1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */; };
+		08ADB8221725C19D003E0107 /* LeadPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8211725C19C003E0107 /* LeadPrice.m */; };
+		08ADB8241725C785003E0107 /* calendaranddestinationjson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */; };
 		492EE5B11714682400575B7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B01714682400575B7C /* UIKit.framework */; };
 		492EE5B31714682400575B7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B21714682400575B7C /* Foundation.framework */; };
 		492EE5B51714682400575B7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B41714682400575B7C /* CoreGraphics.framework */; };
@@ -51,6 +64,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		08ADB7EF1721A061003E0107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08ADB7EA1721A060003E0107 /* Kal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 491D3ACE171F52CB00AE4227;
+			remoteInfo = Kal;
+		};
+		08ADB7F11721A061003E0107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08ADB7EA1721A060003E0107 /* Kal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 491D3ACF171F52CB00AE4227;
+			remoteInfo = KalTests;
+		};
+		08ADB7F31721A128003E0107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08ADB7EA1721A060003E0107 /* Kal.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EAD3CA27135F31C500CEC657;
+			remoteInfo = Kal;
+		};
 		492EE5D81714682400575B7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 492EE5A51714682400575B7C /* Project object */;
@@ -79,6 +113,30 @@
 		08ADB7871720435F003E0107 /* CheckInWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInWebViewController.xib; sourceTree = "<group>"; };
 		08ADB7CC17207F4E003E0107 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		08ADB7EA1721A060003E0107 /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = Kal/Kal.xcodeproj; sourceTree = "<group>"; };
+		08ADB7F51721A1C3003E0107 /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kal.bundle; path = Kal/Kal.bundle; sourceTree = "<group>"; };
+		08ADB7FA1721CB5A003E0107 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = JSON/JSON.h; sourceTree = SOURCE_ROOT; };
+		08ADB7FB1721CB5A003E0107 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "JSON/NSObject+SBJSON.h"; sourceTree = SOURCE_ROOT; };
+		08ADB7FC1721CB5A003E0107 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "JSON/NSObject+SBJSON.m"; sourceTree = SOURCE_ROOT; };
+		08ADB7FD1721CB5A003E0107 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "JSON/NSString+SBJSON.h"; sourceTree = SOURCE_ROOT; };
+		08ADB7FE1721CB5A003E0107 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "JSON/NSString+SBJSON.m"; sourceTree = SOURCE_ROOT; };
+		08ADB7FF1721CB5A003E0107 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = JSON/SBJsonBase.h; sourceTree = SOURCE_ROOT; };
+		08ADB8001721CB5A003E0107 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = JSON/SBJsonBase.m; sourceTree = SOURCE_ROOT; };
+		08ADB8011721CB5A003E0107 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = JSON/SBJsonParser.h; sourceTree = SOURCE_ROOT; };
+		08ADB8021721CB5A003E0107 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = JSON/SBJsonParser.m; sourceTree = SOURCE_ROOT; };
+		08ADB8031721CB5A003E0107 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = JSON/SBJsonWriter.h; sourceTree = SOURCE_ROOT; };
+		08ADB8041721CB5A003E0107 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = JSON/SBJsonWriter.m; sourceTree = SOURCE_ROOT; };
+		08ADB80B1721E5C7003E0107 /* singledatejson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = singledatejson.txt; path = Data/singledatejson.txt; sourceTree = "<group>"; };
+		08ADB81417258C37003E0107 /* FlightSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSegment.h; sourceTree = "<group>"; };
+		08ADB81517258C37003E0107 /* FlightSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSegment.m; sourceTree = "<group>"; };
+		08ADB81717258D10003E0107 /* SingleDateShoppingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDateShoppingResponse.h; sourceTree = "<group>"; };
+		08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDateShoppingResponse.m; sourceTree = "<group>"; };
+		08ADB81A1725A280003E0107 /* PayLoadKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayLoadKeys.h; sourceTree = "<group>"; };
+		08ADB81D1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarAndDestinationShoppingResponse.h; sourceTree = "<group>"; };
+		08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarAndDestinationShoppingResponse.m; sourceTree = "<group>"; };
+		08ADB8201725C19C003E0107 /* LeadPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadPrice.h; sourceTree = "<group>"; };
+		08ADB8211725C19C003E0107 /* LeadPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadPrice.m; sourceTree = "<group>"; };
+		08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = calendaranddestinationjson.txt; path = Data/calendaranddestinationjson.txt; sourceTree = "<group>"; };
 		492EE5AD1714682400575B7C /* sabresonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sabresonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EE5B01714682400575B7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		492EE5B21714682400575B7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08ADB7F81721A5C9003E0107 /* libKal.a in Frameworks */,
 				492EE5EC1715FFA500575B7C /* QuartzCore.framework in Frameworks */,
 				08ADB77C171F30AA003E0107 /* MapKit.framework in Frameworks */,
 				08ADB77A171F30A1003E0107 /* CoreLocation.framework in Frameworks */,
@@ -158,6 +217,15 @@
 				08ADB76F171F2F16003E0107 /* TravelInfo.m */,
 				08ADB770171F2F16003E0107 /* TravelPointAnnotation.h */,
 				08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */,
+				08ADB81417258C37003E0107 /* FlightSegment.h */,
+				08ADB81517258C37003E0107 /* FlightSegment.m */,
+				08ADB81717258D10003E0107 /* SingleDateShoppingResponse.h */,
+				08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */,
+				08ADB81A1725A280003E0107 /* PayLoadKeys.h */,
+				08ADB81D1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.h */,
+				08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */,
+				08ADB8201725C19C003E0107 /* LeadPrice.h */,
+				08ADB8211725C19C003E0107 /* LeadPrice.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -171,9 +239,47 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		08ADB7EB1721A060003E0107 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB7F01721A061003E0107 /* libKal.a */,
+				08ADB7F21721A061003E0107 /* KalTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08ADB7F91721CB41003E0107 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB7FA1721CB5A003E0107 /* JSON.h */,
+				08ADB7FB1721CB5A003E0107 /* NSObject+SBJSON.h */,
+				08ADB7FC1721CB5A003E0107 /* NSObject+SBJSON.m */,
+				08ADB7FD1721CB5A003E0107 /* NSString+SBJSON.h */,
+				08ADB7FE1721CB5A003E0107 /* NSString+SBJSON.m */,
+				08ADB7FF1721CB5A003E0107 /* SBJsonBase.h */,
+				08ADB8001721CB5A003E0107 /* SBJsonBase.m */,
+				08ADB8011721CB5A003E0107 /* SBJsonParser.h */,
+				08ADB8021721CB5A003E0107 /* SBJsonParser.m */,
+				08ADB8031721CB5A003E0107 /* SBJsonWriter.h */,
+				08ADB8041721CB5A003E0107 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		08ADB80A1721E5B7003E0107 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */,
+				08ADB80B1721E5C7003E0107 /* singledatejson.txt */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		492EE5A41714682400575B7C = {
 			isa = PBXGroup;
 			children = (
+				08ADB7F51721A1C3003E0107 /* Kal.bundle */,
+				08ADB7EA1721A060003E0107 /* Kal.xcodeproj */,
 				492EE5B61714682400575B7C /* sabresonic */,
 				492EE5DA1714682400575B7C /* sabresonicTests */,
 				492EE5AF1714682400575B7C /* Frameworks */,
@@ -207,6 +313,8 @@
 		492EE5B61714682400575B7C /* sabresonic */ = {
 			isa = PBXGroup;
 			children = (
+				08ADB80A1721E5B7003E0107 /* Data */,
+				08ADB7F91721CB41003E0107 /* JSON */,
 				492EE629171F13BA00575B7C /* Controller */,
 				08ADB76B171F2EF7003E0107 /* Models */,
 				492EE60817160ABF00575B7C /* Content */,
@@ -308,6 +416,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				08ADB7F41721A128003E0107 /* PBXTargetDependency */,
 			);
 			name = sabresonic;
 			productName = sabresonic;
@@ -352,6 +461,12 @@
 			mainGroup = 492EE5A41714682400575B7C;
 			productRefGroup = 492EE5AE1714682400575B7C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 08ADB7EB1721A060003E0107 /* Products */;
+					ProjectRef = 08ADB7EA1721A060003E0107 /* Kal.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				492EE5AC1714682400575B7C /* sabresonic */,
@@ -359,6 +474,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		08ADB7F01721A061003E0107 /* libKal.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKal.a;
+			remoteRef = 08ADB7EF1721A061003E0107 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		08ADB7F21721A061003E0107 /* KalTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KalTests.octest;
+			remoteRef = 08ADB7F11721A061003E0107 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		492EE5AB1714682400575B7C /* Resources */ = {
@@ -380,6 +512,9 @@
 				492EE63A171F142600575B7C /* reveal_menu_icon_portrait@2x.png in Resources */,
 				08ADB784171F4127003E0107 /* MapViewController.xib in Resources */,
 				08ADB78917204360003E0107 /* CheckInWebViewController.xib in Resources */,
+				08ADB7F61721A1C3003E0107 /* Kal.bundle in Resources */,
+				08ADB80C1721E5C7003E0107 /* singledatejson.txt in Resources */,
+				08ADB8241725C785003E0107 /* calendaranddestinationjson.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +564,15 @@
 				08ADB783171F4127003E0107 /* MapViewController.m in Sources */,
 				08ADB78817204360003E0107 /* CheckInWebViewController.m in Sources */,
 				08ADB7CE17207F4F003E0107 /* CustomTableViewCell.m in Sources */,
+				08ADB8051721CB5A003E0107 /* NSObject+SBJSON.m in Sources */,
+				08ADB8061721CB5A003E0107 /* NSString+SBJSON.m in Sources */,
+				08ADB8071721CB5A003E0107 /* SBJsonBase.m in Sources */,
+				08ADB8081721CB5A003E0107 /* SBJsonParser.m in Sources */,
+				08ADB8091721CB5A003E0107 /* SBJsonWriter.m in Sources */,
+				08ADB81617258C37003E0107 /* FlightSegment.m in Sources */,
+				08ADB81917258D11003E0107 /* SingleDateShoppingResponse.m in Sources */,
+				08ADB81F1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m in Sources */,
+				08ADB8221725C19D003E0107 /* LeadPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +587,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		08ADB7F41721A128003E0107 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kal;
+			targetProxy = 08ADB7F31721A128003E0107 /* PBXContainerItemProxy */;
+		};
 		492EE5D91714682400575B7C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 492EE5AC1714682400575B7C /* sabresonic */;
@@ -539,9 +688,12 @@
 		492EE5E61714682400575B7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
+				HEADER_SEARCH_PATHS = Kal/;
 				INFOPLIST_FILE = "sabresonic/sabresonic-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -550,9 +702,12 @@
 		492EE5E71714682400575B7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
+				HEADER_SEARCH_PATHS = Kal/;
 				INFOPLIST_FILE = "sabresonic/sabresonic-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
