@@ -22,7 +22,7 @@
 @end
 
 @implementation MapViewController
-@synthesize airMapView, flightInfoTableView, filteredArray;
+@synthesize airMapView, flightInfoTableView, filteredArray, fbController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +38,8 @@
     [super viewDidLoad];
     //add notification obserber
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterFlightListNotificationReceived:) name:FILTER_FLIGHT_LIST_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareOnFBNotificationReceived:) name:SHARE_ON_FACEBOOK_NOTIFICATION object:nil];
+    
     [airMapView.delegate self];
 	
     UIImage *revealImagePortrait = [UIImage imageNamed:@"reveal_menu_icon_portrait"];
@@ -126,13 +128,21 @@
     self.filteredArray = [FlightFilterHelper filterArray:del.flightsArray withFilterType:currentFilter byParameter:btn.titleLabel.text];
 
     [self.flightInfoTableView reloadData];
-
-    /*
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Map App" message:btn.titleLabel.text delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-    */
 }
 
+-(void)PostOnFacebook
+{
+    if(NSClassFromString(@"SLComposeViewController") != nil)
+    {
+        self.fbController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        BOOL resFB = [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook];
+        if(resFB)
+        {
+            [self.navigationController presentViewController:self.fbController animated:YES completion:nil];
+        }
+
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -259,6 +269,20 @@
         [minFareValueLbl setFrame:CGRectMake(150, 110, 100, 30)];
         
         [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+        
+        //share
+        UIButton *shareFB = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [shareFB addTarget:self action:@selector(shareBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+        shareFB.tag = FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION);
+        [shareFB setFrame:CGRectMake(150, 140, 100, 30)];
+        if(fd.isSharedOnFB)
+        {
+            [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
+        }
+        else
+        {
+            [shareFB setTitle:@"Share" forState:UIControlStateNormal];
+        }
         //add to cell
         [cell addSubview:orgLbl];
         [cell addSubview:orgValueLbl];
@@ -270,6 +294,7 @@
         [cell addSubview:retDateValueLbl];
         [cell addSubview:minFareLbl];
         [cell addSubview:minFareValueLbl];
+        [cell addSubview:shareFB];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -288,10 +313,39 @@
     
     UILabel *minFareValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (18*FLIGHT_CELL_LABEL_ADDITION)];
     [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+    
+    UIButton *shareFB =  (UIButton*)[cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION)];
+    if(fd.isSharedOnFB)
+    {
+        [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [shareFB setTitle:@"Share" forState:UIControlStateNormal];
+    }
 
         return cell;
 }
 
+-(void)shareBtnTapped:(id)sender
+{
+    UIButton *shareBtn = (UIButton*)sender;
+    UITableViewCell *cell = (UITableViewCell*) [shareBtn superview];
+    int selectedRow = [self.flightInfoTableView indexPathForCell:cell].row;
+    NSLog(@"Row = %d", selectedRow);
+    FlightDetails *selectedFlight = [self.filteredArray objectAtIndex:selectedRow];
+    if(selectedFlight.isSharedOnFB == NO)
+    {
+        selectedFlight.isSharedOnFB = YES;
+        [shareBtn setTitle:@"Undo Share" forState:UIControlStateNormal];
+    }
+    else
+    {
+        selectedFlight.isSharedOnFB = NO;
+        [shareBtn setTitle:@"Share" forState:UIControlStateNormal];
+    }
+    
+}
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -335,11 +389,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 175;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
 }
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -374,5 +429,26 @@
     }
 }
 
+-(void)shareOnFBNotificationReceived:(NSNotification*)notification
+{
+
+    if([notification.name isEqualToString:SHARE_ON_FACEBOOK_NOTIFICATION])
+    {
+        NSPredicate *predic = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"isSharedOnFB == YES"]];
+        NSArray *shareFBCollection = [self.filteredArray filteredArrayUsingPredicate:predic];
+        NSString *textToShare = [NSString stringWithFormat:@"I like following flights.!...what you think ?\n"];
+        for(int i=0; i < shareFBCollection.count; i++)
+        {
+            FlightDetails *fd = shareFBCollection[i];
+            textToShare = [textToShare stringByAppendingFormat:@" Origin: %@    Destination: %@\n Departure: %@   Return: %@\n Fare: USD %@", fd.origin, fd.destination, fd.departureDate, fd.returnDate, fd.minFare];
+        }
+        if(shareFBCollection != nil && shareFBCollection.count > 0)
+        {
+            [self PostOnFacebook];
+            [self.fbController setInitialText:textToShare];
+        }
+
+    }
+}
 
 @end

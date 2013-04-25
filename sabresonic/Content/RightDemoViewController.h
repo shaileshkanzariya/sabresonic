@@ -18,5 +18,6 @@
 - (IBAction)showOppositeView:(id)sender;
 - (IBAction)togglePresentationMode:(id)sender;
 - (IBAction)filterByFare:(id)sender;
+- (IBAction)shareOnFacebook:(id)sender;
 
 @end

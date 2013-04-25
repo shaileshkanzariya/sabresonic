@@ -20,6 +20,7 @@
     NSString *returnDate;
     NSString *minFare;
     NSString *minNonstopFare;
+    BOOL isSharedOnFB;
     Itinerary *itinerary; //array ob "Itinerary" objects
 }
 @property(nonatomic, strong)NSString *origin;
@@ -28,6 +29,7 @@
 @property(nonatomic, strong)NSString *returnDate;
 @property(nonatomic, strong)NSString *minFare;
 @property(nonatomic, strong)NSString *minNonstopFare;
+@property(nonatomic, assign)BOOL isSharedOnFB;
 @property(nonatomic, strong)Itinerary *itinerary;
 
 @end

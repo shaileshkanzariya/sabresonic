@@ -44,6 +44,8 @@
 
 //NSNotifications
 #define FILTER_FLIGHT_LIST_NOTIFICATION @"FilterFlightList"
+#define SHARE_ON_FACEBOOK_NOTIFICATION @"ShareOnFacebook"
+
 #define FILTER_BY_DESTINATION @"FilterByDestination"
 #define FILTER_BY_MINFARE @"FilterByMInFare"
 

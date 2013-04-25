@@ -13,6 +13,7 @@
 #import "Route.h"
 #import "TravelInfo.h"
 #import "TravelPointAnnotation.h"
+#import  <Social/Social.h>
 
 @interface MapViewController : UIViewController
 {
@@ -20,9 +21,11 @@
     IBOutlet MKMapView *airMapView;
     IBOutlet UITableView *flightInfoTableView;
     NSArray *filteredArray;
+    SLComposeViewController *fbController;
 }
 @property (nonatomic, strong) IBOutlet MKMapView *airMapView;
 @property (nonatomic, strong) IBOutlet UITableView *flightInfoTableView;
 @property (nonatomic, strong) NSArray *filteredArray;
+@property (nonatomic, strong) SLComposeViewController *fbController;
 
 @end

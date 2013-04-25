@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		086670CF1729B38600DE41BE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086670CE1729B38600DE41BE /* Social.framework */; };
 		08ADB772171F2F16003E0107 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB76D171F2F16003E0107 /* Route.m */; };
 		08ADB773171F2F16003E0107 /* TravelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB76F171F2F16003E0107 /* TravelInfo.m */; };
 		08ADB774171F2F16003E0107 /* TravelPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		086670CE1729B38600DE41BE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		08ADB76C171F2F16003E0107 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = Models/Route.h; sourceTree = "<group>"; };
 		08ADB76D171F2F16003E0107 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = Models/Route.m; sourceTree = "<group>"; };
 		08ADB76E171F2F16003E0107 /* TravelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelInfo.h; path = Models/TravelInfo.h; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086670CF1729B38600DE41BE /* Social.framework in Frameworks */,
 				08ADB7F81721A5C9003E0107 /* libKal.a in Frameworks */,
 				492EE5EC1715FFA500575B7C /* QuartzCore.framework in Frameworks */,
 				08ADB77C171F30AA003E0107 /* MapKit.framework in Frameworks */,
@@ -298,6 +301,7 @@
 		492EE5A41714682400575B7C = {
 			isa = PBXGroup;
 			children = (
+				086670CE1729B38600DE41BE /* Social.framework */,
 				08ADB7F51721A1C3003E0107 /* Kal.bundle */,
 				08ADB7EA1721A060003E0107 /* Kal.xcodeproj */,
 				492EE5B61714682400575B7C /* sabresonic */,

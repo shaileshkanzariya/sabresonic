@@ -95,13 +95,13 @@
 						<reference key="IBUIFontDescription" ref="70651389"/>
 						<reference key="IBUIFont" ref="114849215"/>
 					</object>
-					<object class="IBUISlider" id="818725529">
+					<object class="IBUISlider" id="595690420">
 						<reference key="NSNextResponder" ref="109929997"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{45, 115}, {193, 23}}</string>
 						<reference key="NSSuperview" ref="109929997"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="817466194"/>
+						<reference key="NSNextKeyView" ref="122137591"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -109,13 +109,13 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<float key="IBUIValue">0.5</float>
 					</object>
-					<object class="IBUILabel" id="738507192">
+					<object class="IBUILabel" id="423558924">
 						<reference key="NSNextResponder" ref="109929997"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{47, 57}, {100, 21}}</string>
 						<reference key="NSSuperview" ref="109929997"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1062162136"/>
+						<reference key="NSNextKeyView" ref="8859690"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -123,31 +123,31 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Filter by fare:</string>
-						<object class="NSColor" key="IBUITextColor" id="913807121">
+						<object class="NSColor" key="IBUITextColor" id="786456102">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 							<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="473079462">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="571897531">
 							<int key="type">1</int>
 							<double key="pointSize">17</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="714117455">
+						<object class="NSFont" key="IBUIFont" id="111307006">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">17</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
-					<object class="IBUILabel" id="1062162136">
+					<object class="IBUILabel" id="8859690">
 						<reference key="NSNextResponder" ref="109929997"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{47, 94}, {10, 21}}</string>
 						<reference key="NSSuperview" ref="109929997"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="676398385"/>
+						<reference key="NSNextKeyView" ref="853805652"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -155,20 +155,20 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">0</string>
-						<reference key="IBUITextColor" ref="913807121"/>
+						<reference key="IBUITextColor" ref="786456102"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<reference key="IBUIFontDescription" ref="473079462"/>
-						<reference key="IBUIFont" ref="714117455"/>
+						<reference key="IBUIFontDescription" ref="571897531"/>
+						<reference key="IBUIFont" ref="111307006"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
-					<object class="IBUILabel" id="676398385">
+					<object class="IBUILabel" id="853805652">
 						<reference key="NSNextResponder" ref="109929997"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{208, 94}, {38, 21}}</string>
 						<reference key="NSSuperview" ref="109929997"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="818725529"/>
+						<reference key="NSNextKeyView" ref="595690420"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -176,20 +176,20 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">1000</string>
-						<reference key="IBUITextColor" ref="913807121"/>
+						<reference key="IBUITextColor" ref="786456102"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<reference key="IBUIFontDescription" ref="473079462"/>
-						<reference key="IBUIFont" ref="714117455"/>
+						<reference key="IBUIFontDescription" ref="571897531"/>
+						<reference key="IBUIFont" ref="111307006"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
-					<object class="IBUIButton" id="817466194">
+					<object class="IBUIButton" id="122137591">
 						<reference key="NSNextResponder" ref="109929997"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{47, 195}, {189, 44}}</string>
 						<reference key="NSSuperview" ref="109929997"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="514581607"/>
+						<reference key="NSNextKeyView" ref="552251279"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -206,11 +206,34 @@
 						<reference key="IBUIFontDescription" ref="70651389"/>
 						<reference key="IBUIFont" ref="114849215"/>
 					</object>
+					<object class="IBUIButton" id="552251279">
+						<reference key="NSNextResponder" ref="109929997"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{47, 269}, {189, 44}}</string>
+						<reference key="NSSuperview" ref="109929997"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="514581607"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Share On Facebook</string>
+						<reference key="IBUIHighlightedTitleColor" ref="539711981"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="829379562"/>
+						<reference key="IBUIFontDescription" ref="70651389"/>
+						<reference key="IBUIFont" ref="114849215"/>
+					</object>
 				</array>
 				<string key="NSFrameSize">{320, 1004}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="738507192"/>
+				<reference key="NSNextKeyView" ref="423558924"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC41AA</bytes>
@@ -239,7 +262,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fareFilterSlider</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="818725529"/>
+						<reference key="destination" ref="595690420"/>
 					</object>
 					<int key="connectionID">28</int>
 				</object>
@@ -264,11 +287,20 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">filterByFare:</string>
-						<reference key="source" ref="817466194"/>
+						<reference key="source" ref="122137591"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">27</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">shareOnFacebook:</string>
+						<reference key="source" ref="552251279"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">30</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -296,11 +328,12 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="514581607"/>
 							<reference ref="534654120"/>
-							<reference ref="818725529"/>
-							<reference ref="817466194"/>
-							<reference ref="1062162136"/>
-							<reference ref="676398385"/>
-							<reference ref="738507192"/>
+							<reference ref="595690420"/>
+							<reference ref="122137591"/>
+							<reference ref="8859690"/>
+							<reference ref="853805652"/>
+							<reference ref="423558924"/>
+							<reference ref="552251279"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -316,27 +349,32 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="818725529"/>
+						<reference key="object" ref="595690420"/>
 						<reference key="parent" ref="109929997"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="738507192"/>
+						<reference key="object" ref="423558924"/>
 						<reference key="parent" ref="109929997"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="1062162136"/>
+						<reference key="object" ref="8859690"/>
 						<reference key="parent" ref="109929997"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
-						<reference key="object" ref="676398385"/>
+						<reference key="object" ref="853805652"/>
 						<reference key="parent" ref="109929997"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="817466194"/>
+						<reference key="object" ref="122137591"/>
+						<reference key="parent" ref="109929997"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="552251279"/>
 						<reference key="parent" ref="109929997"/>
 					</object>
 				</array>
@@ -354,12 +392,13 @@
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">28</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -368,12 +407,17 @@
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="filterByFare:">id</string>
+						<string key="shareOnFacebook:">id</string>
 						<string key="showOppositeView:">id</string>
 						<string key="togglePresentationMode:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="filterByFare:">
 							<string key="name">filterByFare:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="shareOnFacebook:">
+							<string key="name">shareOnFacebook:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showOppositeView:">

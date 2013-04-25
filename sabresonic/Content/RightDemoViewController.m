@@ -58,6 +58,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_FLIGHT_LIST_NOTIFICATION object:nil userInfo:userInfoDict];
 }
 
+- (IBAction)shareOnFacebook:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHARE_ON_FACEBOOK_NOTIFICATION object:nil userInfo:nil];
+}
+
 #pragma mark - Autorotation
 
 /*
