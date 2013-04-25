@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PayLoadKeys.h"
+#import "Itinerary.h"
+#import "JSON.h"
+#import "FlightSegment.h"
+#import "FlightDetails.h"
 
 @interface JSONResponseParser : NSObject
+
++(NSMutableArray*)parseCalendarOrDestinationShoppingJSONResponse:(NSString*)jsonResponse;
++(NSMutableArray*)parseSingleDateShoppingJSONResponse:(NSString*)jsonResponse;
++(NSMutableArray*)parseJSONResponseAndFillObjects:(NSString*)jsonResponse ForShoppingType:(int)shoppingType;
 
 @end

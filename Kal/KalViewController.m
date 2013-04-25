@@ -36,7 +36,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
 
 @implementation KalViewController
 
-@synthesize dataSource, delegate;
+@synthesize dataSource, delegate, selectedFromDate;
 
 - (id)initWithSelectedDate:(NSDate *)selectedDate withFrame:(CGRect )_frame
 {
@@ -112,6 +112,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
 {
   NSDate *from = [[date NSDate] cc_dateByMovingToBeginningOfDay];
   NSDate *to = [[date NSDate] cc_dateByMovingToEndOfDay];
+  self.selectedFromDate = from;
   [self clearTable];
   [dataSource loadItemsFromDate:from toDate:to];
   [tableView reloadData];

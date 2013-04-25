@@ -11,17 +11,23 @@
 @implementation CustomTableViewCell
 @synthesize kalVC;
 
+/*
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+ */
+        /*
         // Initialization code
         self.kalVC = [[KalViewController alloc] initWithFrame:CGRectMake(5, 10, 330, 300)];
         self.kalVC.delegate = self;
         [self addSubview:self.kalVC.view];
+         */
+/*
     }
     return self;
 }
+*/
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

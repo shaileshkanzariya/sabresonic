@@ -9,5 +9,6 @@
 #import "Itinerary.h"
 
 @implementation Itinerary
+@synthesize currencyCode, totalPrice, baseFare, totalTaxes, flightSegments;
 
 @end

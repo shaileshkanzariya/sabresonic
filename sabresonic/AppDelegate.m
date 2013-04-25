@@ -17,7 +17,7 @@
 #import "PayLoadKeys.h"
 
 @implementation AppDelegate
-@synthesize  frontViewNavController,mapViewNavController,checkInWebViewNavController, travelInfo;
+@synthesize  frontViewNavController,mapViewNavController,checkInWebViewNavController, flightsArray, currentShoppingType, filterParaDict;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,20 +48,28 @@
     // Step 4: Set it as your root view controller.
     self.window.rootViewController = self.revealController;
     
-    //Load & parse JSON. Fill up it into objects
-    self.travelInfo = [[TravelInfo alloc] init];
     NSError *err;
     NSStringEncoding *strEncoding = NULL;
     
+    /*
+    //Single Date Shopping
     NSString *fullPathSD = [[NSBundle mainBundle] pathForResource:@"singledatejson" ofType:@"txt"];
     NSString *responseSD = [NSString stringWithContentsOfFile:fullPathSD usedEncoding:strEncoding error:&err];
     [self.travelInfo parseJSONResponseAndFillObjects:responseSD ForShoppingType:SINGLE_DATE_SHOPPING];
+    */
     
+    //Destination Shopping
+    NSString *fullPathDS = [[NSBundle mainBundle] pathForResource:@"destinationjson" ofType:@"txt"];
+    NSString *responseDS = [NSString stringWithContentsOfFile:fullPathDS usedEncoding:strEncoding error:&err];
+    self.currentShoppingType = DESTINATION_SHOPPING;
+    self.flightsArray = [JSONResponseParser parseJSONResponseAndFillObjects:responseDS ForShoppingType:DESTINATION_SHOPPING];
     
-    //Parse Calendar Or Destination Shopping
-    NSString *fullPathCD = [[NSBundle mainBundle] pathForResource:@"calendaranddestinationjson" ofType:@"txt"];
-    NSString *responseCD = [NSString stringWithContentsOfFile:fullPathCD usedEncoding:strEncoding error:&err];
-    [self.travelInfo parseJSONResponseAndFillObjects:responseCD ForShoppingType:CALENDARE_SHOPPING];
+    /*
+    //Calendar  Shopping
+    NSString *fullPathCS = [[NSBundle mainBundle] pathForResource:@"calendarjson" ofType:@"txt"];
+    NSString *responseCS = [NSString stringWithContentsOfFile:fullPathCS usedEncoding:strEncoding error:&err];
+    [self.travelInfo parseJSONResponseAndFillObjects:responseCS ForShoppingType:CALENDARE_SHOPPING];
+    */
     
     [self.window makeKeyAndVisible];
     return YES;

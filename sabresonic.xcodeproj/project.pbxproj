@@ -27,10 +27,13 @@
 		08ADB8091721CB5A003E0107 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8041721CB5A003E0107 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		08ADB80C1721E5C7003E0107 /* singledatejson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB80B1721E5C7003E0107 /* singledatejson.txt */; };
 		08ADB81617258C37003E0107 /* FlightSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81517258C37003E0107 /* FlightSegment.m */; };
-		08ADB81917258D11003E0107 /* SingleDateShoppingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */; };
-		08ADB81F1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */; };
-		08ADB8221725C19D003E0107 /* LeadPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ADB8211725C19C003E0107 /* LeadPrice.m */; };
-		08ADB8241725C785003E0107 /* calendaranddestinationjson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */; };
+		08ADB8241725C785003E0107 /* destinationjson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ADB8231725C785003E0107 /* destinationjson.txt */; };
+		08B31E2C1728383D00CD04FA /* FlightFilterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B31E2B1728383D00CD04FA /* FlightFilterHelper.m */; };
+		08B31E2E17284AE000CD04FA /* calendarjson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08B31E2D17284AE000CD04FA /* calendarjson.txt */; };
+		08B31E3117286AC400CD04FA /* FlightDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B31E3017286AC400CD04FA /* FlightDetails.m */; };
+		08B31E3417286E9E00CD04FA /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B31E3317286E9E00CD04FA /* Itinerary.m */; };
+		08B31E371728731700CD04FA /* JSONResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B31E361728731600CD04FA /* JSONResponseParser.m */; };
+		08B6E0601727372E009B31F9 /* TravelLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B6E05F1727372E009B31F9 /* TravelLocation.m */; };
 		492EE5B11714682400575B7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B01714682400575B7C /* UIKit.framework */; };
 		492EE5B31714682400575B7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B21714682400575B7C /* Foundation.framework */; };
 		492EE5B51714682400575B7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492EE5B41714682400575B7C /* CoreGraphics.framework */; };
@@ -129,14 +132,19 @@
 		08ADB80B1721E5C7003E0107 /* singledatejson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = singledatejson.txt; path = Data/singledatejson.txt; sourceTree = "<group>"; };
 		08ADB81417258C37003E0107 /* FlightSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSegment.h; sourceTree = "<group>"; };
 		08ADB81517258C37003E0107 /* FlightSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSegment.m; sourceTree = "<group>"; };
-		08ADB81717258D10003E0107 /* SingleDateShoppingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDateShoppingResponse.h; sourceTree = "<group>"; };
-		08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDateShoppingResponse.m; sourceTree = "<group>"; };
 		08ADB81A1725A280003E0107 /* PayLoadKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayLoadKeys.h; sourceTree = "<group>"; };
-		08ADB81D1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarAndDestinationShoppingResponse.h; sourceTree = "<group>"; };
-		08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarAndDestinationShoppingResponse.m; sourceTree = "<group>"; };
-		08ADB8201725C19C003E0107 /* LeadPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadPrice.h; sourceTree = "<group>"; };
-		08ADB8211725C19C003E0107 /* LeadPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadPrice.m; sourceTree = "<group>"; };
-		08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = calendaranddestinationjson.txt; path = Data/calendaranddestinationjson.txt; sourceTree = "<group>"; };
+		08ADB8231725C785003E0107 /* destinationjson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = destinationjson.txt; path = Data/destinationjson.txt; sourceTree = "<group>"; };
+		08B31E2A1728383D00CD04FA /* FlightFilterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightFilterHelper.h; sourceTree = "<group>"; };
+		08B31E2B1728383D00CD04FA /* FlightFilterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightFilterHelper.m; sourceTree = "<group>"; };
+		08B31E2D17284AE000CD04FA /* calendarjson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = calendarjson.txt; path = Data/calendarjson.txt; sourceTree = "<group>"; };
+		08B31E2F17286AC400CD04FA /* FlightDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetails.h; sourceTree = "<group>"; };
+		08B31E3017286AC400CD04FA /* FlightDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetails.m; sourceTree = "<group>"; };
+		08B31E3217286E9E00CD04FA /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Itinerary.h; sourceTree = "<group>"; };
+		08B31E3317286E9E00CD04FA /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Itinerary.m; sourceTree = "<group>"; };
+		08B31E351728731600CD04FA /* JSONResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONResponseParser.h; sourceTree = "<group>"; };
+		08B31E361728731600CD04FA /* JSONResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONResponseParser.m; sourceTree = "<group>"; };
+		08B6E05E1727372E009B31F9 /* TravelLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelLocation.h; sourceTree = "<group>"; };
+		08B6E05F1727372E009B31F9 /* TravelLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelLocation.m; sourceTree = "<group>"; };
 		492EE5AD1714682400575B7C /* sabresonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sabresonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EE5B01714682400575B7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		492EE5B21714682400575B7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,13 +227,15 @@
 				08ADB771171F2F16003E0107 /* TravelPointAnnotation.m */,
 				08ADB81417258C37003E0107 /* FlightSegment.h */,
 				08ADB81517258C37003E0107 /* FlightSegment.m */,
-				08ADB81717258D10003E0107 /* SingleDateShoppingResponse.h */,
-				08ADB81817258D10003E0107 /* SingleDateShoppingResponse.m */,
 				08ADB81A1725A280003E0107 /* PayLoadKeys.h */,
-				08ADB81D1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.h */,
-				08ADB81E1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m */,
-				08ADB8201725C19C003E0107 /* LeadPrice.h */,
-				08ADB8211725C19C003E0107 /* LeadPrice.m */,
+				08B6E05E1727372E009B31F9 /* TravelLocation.h */,
+				08B6E05F1727372E009B31F9 /* TravelLocation.m */,
+				08B31E2F17286AC400CD04FA /* FlightDetails.h */,
+				08B31E3017286AC400CD04FA /* FlightDetails.m */,
+				08B31E3217286E9E00CD04FA /* Itinerary.h */,
+				08B31E3317286E9E00CD04FA /* Itinerary.m */,
+				08B31E351728731600CD04FA /* JSONResponseParser.h */,
+				08B31E361728731600CD04FA /* JSONResponseParser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -269,10 +279,20 @@
 		08ADB80A1721E5B7003E0107 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				08ADB8231725C785003E0107 /* calendaranddestinationjson.txt */,
+				08B31E2D17284AE000CD04FA /* calendarjson.txt */,
+				08ADB8231725C785003E0107 /* destinationjson.txt */,
 				08ADB80B1721E5C7003E0107 /* singledatejson.txt */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		08B31E281728382A00CD04FA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				08B31E2A1728383D00CD04FA /* FlightFilterHelper.h */,
+				08B31E2B1728383D00CD04FA /* FlightFilterHelper.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		492EE5A41714682400575B7C = {
@@ -366,6 +386,7 @@
 		492EE60817160ABF00575B7C /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				08B31E281728382A00CD04FA /* Helper */,
 				08ADB775171F2F53003E0107 /* Map */,
 				492EE618171F136500575B7C /* FrontViewController.h */,
 				492EE619171F136500575B7C /* FrontViewController.m */,
@@ -514,7 +535,8 @@
 				08ADB78917204360003E0107 /* CheckInWebViewController.xib in Resources */,
 				08ADB7F61721A1C3003E0107 /* Kal.bundle in Resources */,
 				08ADB80C1721E5C7003E0107 /* singledatejson.txt in Resources */,
-				08ADB8241725C785003E0107 /* calendaranddestinationjson.txt in Resources */,
+				08ADB8241725C785003E0107 /* destinationjson.txt in Resources */,
+				08B31E2E17284AE000CD04FA /* calendarjson.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,9 +592,11 @@
 				08ADB8081721CB5A003E0107 /* SBJsonParser.m in Sources */,
 				08ADB8091721CB5A003E0107 /* SBJsonWriter.m in Sources */,
 				08ADB81617258C37003E0107 /* FlightSegment.m in Sources */,
-				08ADB81917258D11003E0107 /* SingleDateShoppingResponse.m in Sources */,
-				08ADB81F1725C16D003E0107 /* CalendarAndDestinationShoppingResponse.m in Sources */,
-				08ADB8221725C19D003E0107 /* LeadPrice.m in Sources */,
+				08B6E0601727372E009B31F9 /* TravelLocation.m in Sources */,
+				08B31E2C1728383D00CD04FA /* FlightFilterHelper.m in Sources */,
+				08B31E3117286AC400CD04FA /* FlightDetails.m in Sources */,
+				08B31E3417286E9E00CD04FA /* Itinerary.m in Sources */,
+				08B31E371728731700CD04FA /* JSONResponseParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

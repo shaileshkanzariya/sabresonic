@@ -8,15 +8,22 @@
 
 #import "RightDemoViewController.h"
 #import "PKRevealController.h"
+#import "FlightFilterHelper.h"
+#import "AppDelegate.h"
 
 @implementation RightDemoViewController
+@synthesize fareFilterSlider;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //set fare slider values
+    [self.fareFilterSlider setMinimumValue:0.0];
+    [self.fareFilterSlider setMaximumValue:1000.0];
+    
     // Each view can dynamically specify the min/max width that can be revealed.
-    [self.revealController setMinimumWidth:220.0f maximumWidth:244.0f forViewController:self];
+    [self.revealController setMinimumWidth:250.0f maximumWidth:270.0f forViewController:self];
 }
 
 #pragma mark - API
@@ -39,6 +46,16 @@
                                                      animated:YES
                                                    completion:NULL];
     }
+}
+- (IBAction)filterByFare:(id)sender
+{
+    float sliderValue = self.fareFilterSlider.value;
+    enum FilterTypes currentFilter = FilterByFare;
+    AppDelegate *appDel = (AppDelegate*) [UIApplication sharedApplication].delegate;
+    
+    NSArray *filteredArray  = [FlightFilterHelper filterArray:appDel.flightsArray withFilterType:currentFilter minValue:0.0 maxValue:sliderValue];
+    NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:filteredArray forKey:FILTER_FLIGHT_LIST_NOTIFICATION];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_FLIGHT_LIST_NOTIFICATION object:nil userInfo:userInfoDict];
 }
 
 #pragma mark - Autorotation

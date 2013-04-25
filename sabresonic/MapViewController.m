@@ -9,14 +9,20 @@
 #import "MapViewController.h"
 #import "MapOverlayArcView.h"
 #import "PKRevealController.h"
+#import "AppDelegate.h"
+#import "FlightFilterHelper.h"
+#import "TravelInfo.h"
+#import "PayLoadKeys.h"
 
+#define FLIGHT_CELL_LABEL_TAG 3000
+#define FLIGHT_CELL_LABEL_ADDITION 100
 
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController
-@synthesize airMapView,travelArray, flightInfoTableView;
+@synthesize airMapView, flightInfoTableView, filteredArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //add notification obserber
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterFlightListNotificationReceived:) name:FILTER_FLIGHT_LIST_NOTIFICATION object:nil];
     [airMapView.delegate self];
 	
     UIImage *revealImagePortrait = [UIImage imageNamed:@"reveal_menu_icon_portrait"];
@@ -45,14 +53,16 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait landscapeImagePhone:revealImageLandscape style:UIBarButtonItemStylePlain target:self action:@selector(showRightView:)];
     }
     
+    
     //get test travel-data which is hard-coded
-    self.travelArray = [TravelInfo createDummyInstance];
-    for(int i=0; i < self.travelArray.count; i++)
+    //AppDelegate *del = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSArray *tmpTraveArray = [TravelInfo createDummyInstance];
+    for(int i=0; i < tmpTraveArray.count; i++)
     {
-        TravelInfo *ti = (TravelInfo*) [self.travelArray objectAtIndex:i];
+        TravelInfo *ti = (TravelInfo*) [tmpTraveArray objectAtIndex:i];
         [ti setAnnotaionsAndOverlayOnMapview:airMapView];
     }
-    self.view.backgroundColor = [UIColor greenColor];
+    
     
 }
 
@@ -89,7 +99,10 @@
         
         // Add a detail disclosure button to the callout.
         UIButton* rightButton = [UIButton buttonWithType:
-                                 UIButtonTypeDetailDisclosure];
+                                 UIButtonTypeRoundedRect];
+        [rightButton setFrame:CGRectMake(2, 2, 60, 30)];
+        [rightButton setTitle:[annotation subtitle] forState:UIControlStateNormal];
+        rightButton.titleLabel.text = [annotation subtitle];
         [rightButton addTarget:self action:@selector(myShowDetailsMethod:)
               forControlEvents:UIControlEventTouchUpInside];
         pinView.rightCalloutAccessoryView = rightButton;
@@ -105,19 +118,19 @@
 //pin detail disclouser button tapped
 -(void)myShowDetailsMethod:(id)sender
 {
+    UIButton *btn = (UIButton*)sender;
+    //filter array by destination location code
+    AppDelegate *del = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    enum FilterTypes currentFilter = FilterByDestination;
+    self.filteredArray = [FlightFilterHelper filterArray:del.flightsArray withFilterType:currentFilter byParameter:btn.titleLabel.text];
+
+    [self.flightInfoTableView reloadData];
+
     /*
-    NSError *err;
-    NSStringEncoding *strEncoding = NULL;
-    NSString *fullPath = [[NSBundle mainBundle] pathForResource:@"json" ofType:@"txt"];
-    NSString *response = [NSString stringWithContentsOfFile:fullPath usedEncoding:strEncoding error:&err];
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSDictionary *dict = [parser objectWithString:response error:&err];
-    NSDictionary*itineraries =  [dict objectForKey:@"FlightSearchRS"];
-    NSArray *itns = [itineraries objectForKey:@"Itineraries"];
-    NSLog(@"File error : %@", [err description]);
-    */
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Map App" message:@"I am tapped" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Map App" message:btn.titleLabel.text delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
+    */
 }
 
 - (void)didReceiveMemoryWarning
@@ -166,25 +179,117 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if(self.filteredArray != nil && self.filteredArray.count > 0)
+    {
+        return [self.filteredArray count];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFlightCellIdentifier"];
+    FlightDetails *fd = [self.filteredArray objectAtIndex:indexPath.row];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyFlightCellIdentifier"];
+        [cell setBackgroundColor:[UIColor clearColor]];
+        //origin
+        UILabel *orgLbl = [[UILabel alloc] init];
+        [orgLbl setTag:FLIGHT_CELL_LABEL_TAG];
+        [orgLbl setFrame:CGRectMake(5, 5, 100, 30)];
+        [orgLbl setText:@"Origin: "];
+        
+        UILabel *orgValueLbl = [[UILabel alloc] init];
+        [orgValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (2*FLIGHT_CELL_LABEL_ADDITION)];
+        [orgValueLbl setFrame:CGRectMake(60, 5, 100, 30)];
+        orgValueLbl.text = fd.origin;
+        
+        //destination
+        UILabel *desLbl = [[UILabel alloc] init];
+        [desLbl setTag:FLIGHT_CELL_LABEL_TAG + (4*FLIGHT_CELL_LABEL_ADDITION)];
+        [desLbl setFrame:CGRectMake(100, 5, 100, 30)];
+        [desLbl setText:@"Destination: "];
+        
+        UILabel *desValueLbl = [[UILabel alloc] init];
+        [desValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (6*FLIGHT_CELL_LABEL_ADDITION)];
+        [desValueLbl setFrame:CGRectMake(195, 5, 100, 30)];
+        desValueLbl.text = fd.destination;
+        
+        //departure date
+        UILabel *depDateLbl = [[UILabel alloc] init];
+        [depDateLbl setTag:FLIGHT_CELL_LABEL_TAG + (8*FLIGHT_CELL_LABEL_ADDITION)];
+        [depDateLbl setFrame:CGRectMake(5, 40, 130, 30)];
+        [depDateLbl setText:@"Departure Date: "];
+        
+        UILabel *depDateValueLbl = [[UILabel alloc] init];
+        [depDateValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (10*FLIGHT_CELL_LABEL_ADDITION)];
+        [depDateValueLbl setFrame:CGRectMake(150, 40, 100, 30)];
+        
+        depDateValueLbl.text = fd.departureDate;
+        
+        //retuen date
+        UILabel *retDateLbl = [[UILabel alloc] init];
+        [retDateLbl setTag:FLIGHT_CELL_LABEL_TAG + (12*FLIGHT_CELL_LABEL_ADDITION)];
+        [retDateLbl setFrame:CGRectMake(5, 75, 130, 30)];
+        [retDateLbl setText:@"Retuen Date: "];
+        
+        UILabel *retDateValueLbl = [[UILabel alloc] init];
+        [retDateValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (14*FLIGHT_CELL_LABEL_ADDITION)];
+        [retDateValueLbl setFrame:CGRectMake(150, 75, 100, 30)];
+        
+        retDateValueLbl.text = fd.returnDate;
+        
+        //min fare
+        UILabel *minFareLbl = [[UILabel alloc] init];
+        [minFareLbl setTag:FLIGHT_CELL_LABEL_TAG + (16*FLIGHT_CELL_LABEL_ADDITION)];
+        [minFareLbl setFrame:CGRectMake(5, 110, 130, 30)];
+        [minFareLbl setText:@"Min Fare: "];
+        
+        UILabel *minFareValueLbl = [[UILabel alloc] init];
+        [minFareValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (18*FLIGHT_CELL_LABEL_ADDITION)];
+        [minFareValueLbl setFrame:CGRectMake(150, 110, 100, 30)];
+        
+        [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+        //add to cell
+        [cell addSubview:orgLbl];
+        [cell addSubview:orgValueLbl];
+        [cell addSubview:desLbl];
+        [cell addSubview:desValueLbl];
+        [cell addSubview:depDateLbl];
+        [cell addSubview:depDateValueLbl];
+        [cell addSubview:retDateLbl];
+        [cell addSubview:retDateValueLbl];
+        [cell addSubview:minFareLbl];
+        [cell addSubview:minFareValueLbl];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = @"Test Label";
-    return cell;
+
+    UILabel *orgValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (2*FLIGHT_CELL_LABEL_ADDITION)];
+    orgValueLbl.text = fd.origin;
+
+    UILabel *desValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (6*FLIGHT_CELL_LABEL_ADDITION)];
+    desValueLbl.text = fd.destination;
+    
+    UILabel *depDateValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (10*FLIGHT_CELL_LABEL_ADDITION)];
+    depDateValueLbl.text = fd.departureDate;
+
+    UILabel *retDateValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (14*FLIGHT_CELL_LABEL_ADDITION)];
+    retDateValueLbl.text = fd.returnDate;
+    
+    UILabel *minFareValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (18*FLIGHT_CELL_LABEL_ADDITION)];
+    [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+
+        return cell;
 }
 
 /*
@@ -227,12 +332,12 @@
  */
 
 #pragma mark - Table view delegate
-/*
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 150;
 }
-*/
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 }
@@ -256,9 +361,18 @@
 */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  return @"Section Header";
+  return @"Flight Details";
 }
 
+//notification received
+-(void)filterFlightListNotificationReceived:(NSNotification*)notification
+{
+    if([notification.name isEqualToString:FILTER_FLIGHT_LIST_NOTIFICATION])
+    {
+        self.filteredArray = [[notification userInfo] valueForKey:FILTER_FLIGHT_LIST_NOTIFICATION];
+        [self.flightInfoTableView reloadData];
+    }
+}
 
 
 @end

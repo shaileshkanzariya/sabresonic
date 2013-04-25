@@ -17,12 +17,12 @@
 @interface MapViewController : UIViewController
 {
     Route *r1,*r2,*r3;
-    NSArray *travelArray;
     IBOutlet MKMapView *airMapView;
     IBOutlet UITableView *flightInfoTableView;
+    NSArray *filteredArray;
 }
 @property (nonatomic, strong) IBOutlet MKMapView *airMapView;
-@property (nonatomic, strong) NSArray *travelArray;
 @property (nonatomic, strong) IBOutlet UITableView *flightInfoTableView;
+@property (nonatomic, strong) NSArray *filteredArray;
 
 @end

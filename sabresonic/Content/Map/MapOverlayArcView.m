@@ -23,9 +23,9 @@
 */
 - (void)createPath
 {
-    //[self invalidatePath];
     if(self.myPolyline == nil || self.myPolyline.pointCount <= 0)
         return;
+    [self invalidatePath];
     CGPoint orgPoint = [self pointForMapPoint:self.myPolyline.points[0]];
     CGPoint destPoint = [self pointForMapPoint:self.myPolyline.points[myPolyline.pointCount-1]];
     

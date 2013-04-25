@@ -8,6 +8,7 @@
 
 #import "Route.h"
 #import "MapOverlayArcView.h"
+#import "TravelLocation.h"
 
 @implementation Route
 
@@ -15,12 +16,15 @@
 
 -(NSArray*)getAnnotationsForRoute
 {
-    if(points == nil)
-        return nil;
+    if(points == nil || points.count <= 0)
+        return [NSArray arrayWithObjects: nil]; //avoid crash and return array with zero objects
+    
+    //origin point will be always first object into points-array
     MKPointAnnotation *p1 = [[MKPointAnnotation alloc]init];
     CLLocation *startPoint = self.points[0];
     [p1 setCoordinate:startPoint.coordinate];
     
+    //destination point will be always last object into points-array
     MKPointAnnotation *p2 = [[MKPointAnnotation alloc]init];
     CLLocation *endPoint = self.points[[self.points count]-1];
     [p2 setCoordinate:endPoint.coordinate];
@@ -31,7 +35,8 @@
 -(NSArray*)getAnnotationsForRoute:(NSArray*)locationPoints ForTravelInfo:(TravelInfo*)travel
 {
     if(locationPoints == nil || locationPoints.count <= 0)
-        return nil;
+        return [NSArray arrayWithObjects: nil]; //avoid crash and return array with zero objects
+    
     [self setPoints:locationPoints];
     
     MKPointAnnotation *a1 = [[MKPointAnnotation alloc]init];
@@ -40,17 +45,17 @@
         [a1 setTitle:[NSString stringWithFormat:@"$%f",travel.cost]];
         [a1 setSubtitle:@"origin"];
     }
-    CLLocation *startPoint = self.points[0];
-    [a1 setCoordinate:startPoint.coordinate];
+    TravelLocation *startPoint = self.points[0];
+    [a1 setCoordinate:startPoint.location.coordinate];
     
     MKPointAnnotation *a2 = [[MKPointAnnotation alloc]init];
     if(travel != nil)
     {
         [a2 setTitle:[NSString stringWithFormat:@"$%f",travel.cost]];
-        [a2 setSubtitle:@"destination"];
     }
-    CLLocation *endPoint = self.points[[self.points count]-1];
-    [a2 setCoordinate:endPoint.coordinate];
+    TravelLocation *endPoint = self.points[[self.points count]-1];
+    [a2 setCoordinate:endPoint.location.coordinate];
+    [a2 setSubtitle:endPoint.locationCode];
     
     //in case if we require custom annotation objects then uncomment below
     /*
@@ -103,16 +108,16 @@
         return nil;
     for(int i=0; i < locationPoints.count; i++)
     {
-        CLLocation *l = (CLLocation*)locationPoints[i];
-        NSLog(@"point = %f, %f", l.coordinate.latitude, l.coordinate.longitude);
+        TravelLocation *tl = (TravelLocation*)locationPoints[i];
+        NSLog(@"point = %f, %f", tl.location.coordinate.latitude, tl.location.coordinate.longitude);
     }
     [self setPoints:locationPoints];
     //add map overlay
     MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
     for(int i=0; i < self.points.count;i++)
     {
-        CLLocation *location = self.points[i];
-        pointArr[i] = MKMapPointForCoordinate(location.coordinate);
+        TravelLocation *location = self.points[i];
+        pointArr[i] = MKMapPointForCoordinate(location.location.coordinate);
     }
     MKPolyline *line = [MKPolyline polylineWithPoints:pointArr count:self.points.count];
     

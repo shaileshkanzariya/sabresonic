@@ -27,12 +27,13 @@
   id <UITableViewDelegate> delegate;
   id <KalDataSource> dataSource;
   NSDate *initialSelectedDate;
+    NSDate *selectedFromDate;
   CGRect frame;
 }
 
 @property (nonatomic, assign) id<UITableViewDelegate> delegate;
 @property (nonatomic, assign) id<KalDataSource> dataSource;
-
+@property (nonatomic, strong) NSDate *selectedFromDate;
 //- (id) initWithFrame:(CGRect)frame; //
 //- (id) initWithSelectedDate:(NSDate *)selectedDate withFrame:(CGRect)frame;
 - (id)initWithSelectedDate:(NSDate *)selectedDate; // designated initializer. When the calendar is first displayed to the user, the month that contains 'selectedDate' will be shown and the corresponding tile for 'selectedDate' will be automatically selected.

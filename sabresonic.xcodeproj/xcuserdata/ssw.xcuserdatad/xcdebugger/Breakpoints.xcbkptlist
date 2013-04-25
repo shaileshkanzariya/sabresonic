@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sabresonic/CustomTableViewCell.m"
-         timestampString = "388349198.797145"
+         timestampString = "388429066.305249"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sabresonic/CustomTableViewCell.m"
-         timestampString = "388349198.797145"
+         timestampString = "388429066.305249"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
          landmarkName = "-numberOfSectionsInTableView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sabresonic/CustomTableViewCell.m"
-         timestampString = "388349198.797145"
+         timestampString = "388429066.305249"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -59,13 +59,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Kal/KalViewController.m"
-         timestampString = "388349040.897518"
+         filePath = "sabresonic/JSONResponseParser.m"
+         timestampString = "388528735.406152"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "-calendarView"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
+         landmarkName = "+parseSingleDateShoppingJSONResponse:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

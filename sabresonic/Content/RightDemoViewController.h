@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface RightDemoViewController : UIViewController
+{
+    IBOutlet UISlider *fareFilterSlider;
+}
+@property(nonatomic, strong) IBOutlet UISlider *fareFilterSlider;
 
 #pragma mark - Methods
 - (IBAction)showOppositeView:(id)sender;
 - (IBAction)togglePresentationMode:(id)sender;
+- (IBAction)filterByFare:(id)sender;
 
 @end

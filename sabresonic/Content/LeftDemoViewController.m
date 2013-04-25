@@ -13,7 +13,8 @@
 #import "CustomTableViewCell.h"
 
 @implementation LeftDemoViewController
-@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded, kalVC;
+@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded, customCell, selectStartDateBtn, calendarPopover, kalVC;
+@synthesize isStartDateSelected, selectReturnDateBtn;
 
 #pragma mark - View Lifecycle
 
@@ -69,13 +70,15 @@
     
             if(indexPath.row == 0 && self.isCellExpanded == YES)
             {
+                /*
                 CustomTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"MyCustomIdentifier"];
                 if(customCell == nil)
                 {
                     customCell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCustomIdentifier"];
                 }
-                //[self.customCell addSubview:self.kalVC.view];
-                return customCell;
+                [self.customCell addSubview:self.kalVC.view];
+                */
+                return self.customCell;
             }
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
             if (cell == nil)
@@ -140,7 +143,7 @@
             if(self.selectedRawIndexPath && indexPath.row == selectedRawIndexPath.row && self.isCellExpanded == YES)
             {
             
-                return 350;
+                return 250;
             }
             else
             {
@@ -213,6 +216,49 @@
         }
 }
 
+- (IBAction)selectStartDateBtnTapped
+{
+    self.isStartDateSelected = YES;
+    [self showCalendarPopover];
+}
+
+- (IBAction)selectReturnDateBtnTapped
+{
+    self.isStartDateSelected = NO;
+    [self showCalendarPopover];
+}
+
+-(void)showCalendarPopover
+{
+    self.kalVC = [[KalViewController alloc] initWithFrame:CGRectMake(5, 10, 330, 300)];
+    
+    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:kalVC];
+    self.calendarPopover.delegate = self;
+    self.calendarPopover.popoverContentSize = CGSizeMake(330, 240);
+    if(self.isStartDateSelected)
+    {
+        [self.calendarPopover presentPopoverFromRect:self.selectStartDateBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    else
+    {
+        [self.calendarPopover presentPopoverFromRect:self.selectReturnDateBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+}
+
+#pragma mark Popover Delegate Methods
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSDateFormatter *formatter  = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"]; //yyyy-MM-dd HH:mm:ss zzz
+    if(self.isStartDateSelected)
+    {
+        selectStartDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
+    }
+    else
+    {
+        selectReturnDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
+    }
+}
 #pragma mark - Autorotation
 
 /*

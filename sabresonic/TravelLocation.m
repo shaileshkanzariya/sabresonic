@@ -9,5 +9,6 @@
 #import "TravelLocation.h"
 
 @implementation TravelLocation
+@synthesize  location, locationCode;
 
 @end

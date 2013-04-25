@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FlightDetails.h"
+
+enum FilterTypes
+{
+    FilterByDestination = 0,
+    FilterByFare
+};
 
 @interface FlightFilterHelper : NSObject
+{
+}
++(NSArray*)filterArray:(NSArray*)arrayToFilter withFilterType:(enum FilterTypes)f1 byParameter:(NSObject*)para;
++(NSArray*)filterArray:(NSArray*)arrayToFilter withFilterType:(enum FilterTypes)f1 minValue:(float)mValue maxValue:(float)mxValue;
++(NSArray*)filterArray:(NSArray*)arrayToFilter;
 
 @end

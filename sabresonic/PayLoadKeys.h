@@ -11,9 +11,9 @@
 @interface PayLoadKeys : NSObject
 
 //Shopping Types
-#define SINGLE_DATE_SHOPPING @"SINGLE_DATE_SHOPPING"
-#define CALENDARE_SHOPPING @"CALENDAR_SHOPPING"
-#define DESTINATION_SHOPPING @"DESTINATION_SHOPPING"
+#define SINGLE_DATE_SHOPPING 0
+#define CALENDARE_SHOPPING 1
+#define DESTINATION_SHOPPING 3
 
 
 //Single date shopping Keys
@@ -41,5 +41,10 @@
 #define RETURN_DATE_KEY @"ReturnDate"
 #define MIN_FARE_KEY @"MinFare"
 #define MIN_NONSTOP_FARE_KEY @"MinNonstopFare"
+
+//NSNotifications
+#define FILTER_FLIGHT_LIST_NOTIFICATION @"FilterFlightList"
+#define FILTER_BY_DESTINATION @"FilterByDestination"
+#define FILTER_BY_MINFARE @"FilterByMInFare"
 
 @end
