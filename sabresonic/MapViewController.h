@@ -21,11 +21,14 @@
     IBOutlet MKMapView *airMapView;
     IBOutlet UITableView *flightInfoTableView;
     NSArray *filteredArray;
-    SLComposeViewController *fbController;
+    SLComposeViewController *slController;
 }
 @property (nonatomic, strong) IBOutlet MKMapView *airMapView;
 @property (nonatomic, strong) IBOutlet UITableView *flightInfoTableView;
 @property (nonatomic, strong) NSArray *filteredArray;
-@property (nonatomic, strong) SLComposeViewController *fbController;
+@property (nonatomic, strong) SLComposeViewController *slController;
+
+-(void)PostOnTwitter;
+-(void)PostOnFacebook;
 
 @end

@@ -13,6 +13,7 @@
 #import "FlightFilterHelper.h"
 #import "TravelInfo.h"
 #import "PayLoadKeys.h"
+#import "FlightDetailsWebViewController.h"
 
 #define FLIGHT_CELL_LABEL_TAG 3000
 #define FLIGHT_CELL_LABEL_ADDITION 100
@@ -22,7 +23,7 @@
 @end
 
 @implementation MapViewController
-@synthesize airMapView, flightInfoTableView, filteredArray, fbController;
+@synthesize airMapView, flightInfoTableView, filteredArray, slController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +40,7 @@
     //add notification obserber
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterFlightListNotificationReceived:) name:FILTER_FLIGHT_LIST_NOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareOnFBNotificationReceived:) name:SHARE_ON_FACEBOOK_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareOnFBNotificationReceived:) name:SHARE_ON_TWITTER_NOTIFICATION object:nil];
     
     [airMapView.delegate self];
 	
@@ -130,19 +132,6 @@
     [self.flightInfoTableView reloadData];
 }
 
--(void)PostOnFacebook
-{
-    if(NSClassFromString(@"SLComposeViewController") != nil)
-    {
-        self.fbController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        BOOL resFB = [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook];
-        if(resFB)
-        {
-            [self.navigationController presentViewController:self.fbController animated:YES completion:nil];
-        }
-
-    }
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -275,7 +264,7 @@
         [shareFB addTarget:self action:@selector(shareBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         shareFB.tag = FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION);
         [shareFB setFrame:CGRectMake(150, 140, 100, 30)];
-        if(fd.isSharedOnFB)
+        if(fd.shouldShare)
         {
             [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
         }
@@ -315,7 +304,7 @@
     [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
     
     UIButton *shareFB =  (UIButton*)[cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION)];
-    if(fd.isSharedOnFB)
+    if(fd.shouldShare)
     {
         [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
     }
@@ -334,14 +323,14 @@
     int selectedRow = [self.flightInfoTableView indexPathForCell:cell].row;
     NSLog(@"Row = %d", selectedRow);
     FlightDetails *selectedFlight = [self.filteredArray objectAtIndex:selectedRow];
-    if(selectedFlight.isSharedOnFB == NO)
+    if(selectedFlight.shouldShare == NO)
     {
-        selectedFlight.isSharedOnFB = YES;
+        selectedFlight.shouldShare = YES;
         [shareBtn setTitle:@"Undo Share" forState:UIControlStateNormal];
     }
     else
     {
-        selectedFlight.isSharedOnFB = NO;
+        selectedFlight.shouldShare = NO;
         [shareBtn setTitle:@"Share" forState:UIControlStateNormal];
     }
     
@@ -394,8 +383,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    AppDelegate *appDel = (AppDelegate*) [UIApplication sharedApplication].delegate;
+    FlightDetailsWebViewController *flightVC = [[FlightDetailsWebViewController alloc] initWithNibName:@"FlightDetailsWebViewController" bundle:[NSBundle mainBundle]];
+    [appDel.mapViewNavController pushViewController:flightVC animated:YES];
 }
+
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -428,13 +420,40 @@
         [self.flightInfoTableView reloadData];
     }
 }
+-(void)PostOnFacebook
+{
+    if(NSClassFromString(@"SLComposeViewController") != nil)
+    {
+        self.slController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        BOOL resFB = [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook];
+        if(resFB)
+        {
+            [self.navigationController presentViewController:self.slController animated:YES completion:nil];
+        }
+        
+    }
+}
+
+-(void)PostOnTwitter
+{
+    if(NSClassFromString(@"SLComposeViewController") != nil)
+    {
+        self.slController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        BOOL resTwtr = [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
+        if(resTwtr)
+        {
+            [self.navigationController presentViewController:self.slController animated:YES completion:nil];
+        }
+        
+    }
+}
 
 -(void)shareOnFBNotificationReceived:(NSNotification*)notification
 {
 
-    if([notification.name isEqualToString:SHARE_ON_FACEBOOK_NOTIFICATION])
+    if([notification.name isEqualToString:SHARE_ON_FACEBOOK_NOTIFICATION] || [notification.name isEqualToString:SHARE_ON_TWITTER_NOTIFICATION])
     {
-        NSPredicate *predic = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"isSharedOnFB == YES"]];
+        NSPredicate *predic = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"shouldShare == YES"]];
         NSArray *shareFBCollection = [self.filteredArray filteredArrayUsingPredicate:predic];
         NSString *textToShare = [NSString stringWithFormat:@"I like following flights.!...what you think ?\n"];
         for(int i=0; i < shareFBCollection.count; i++)
@@ -444,11 +463,24 @@
         }
         if(shareFBCollection != nil && shareFBCollection.count > 0)
         {
-            [self PostOnFacebook];
-            [self.fbController setInitialText:textToShare];
+            if([notification.name isEqualToString:SHARE_ON_FACEBOOK_NOTIFICATION])
+               {
+                   [self PostOnFacebook];
+               }
+            else if([notification.name isEqualToString:SHARE_ON_TWITTER_NOTIFICATION])
+                {
+                    if(textToShare.length > 140) //twtr lenght limit
+                    {
+                        textToShare = [[textToShare substringToIndex:136] stringByAppendingString:@"..."];
+                    }
+                    [self PostOnTwitter];
+                }
+               
+            [self.slController setInitialText:textToShare];
         }
 
     }
 }
+                    
 
 @end

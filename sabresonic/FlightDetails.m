@@ -10,7 +10,7 @@
 
 
 @implementation FlightDetails
-@synthesize origin, destination, departureDate, returnDate, minFare, minNonstopFare, itinerary, isSharedOnFB;
+@synthesize origin, destination, departureDate, returnDate, minFare, minNonstopFare, itinerary, shouldShare;
 
 /*
 -(void)parseJSONResponseAndFillObjects:(NSString*)jsonResponse ForShoppingType:(int)shoppingType

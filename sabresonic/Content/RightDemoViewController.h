@@ -19,5 +19,6 @@
 - (IBAction)togglePresentationMode:(id)sender;
 - (IBAction)filterByFare:(id)sender;
 - (IBAction)shareOnFacebook:(id)sender;
+- (IBAction)shareOnTwitter:(id)sender;
 
 @end

@@ -44,8 +44,8 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImagePortrait landscapeImagePhone:revealImageLandscape style:UIBarButtonItemStylePlain target:self action:@selector(showRightView:)];
     }
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.sabre.com"]];
-    [self.webView loadRequest:request];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.etihad.com"]];
+    //[self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning

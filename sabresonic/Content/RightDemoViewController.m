@@ -63,6 +63,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:SHARE_ON_FACEBOOK_NOTIFICATION object:nil userInfo:nil];
 }
 
+- (IBAction)shareOnTwitter:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHARE_ON_TWITTER_NOTIFICATION object:nil userInfo:nil];
+}
 #pragma mark - Autorotation
 
 /*

@@ -65,6 +65,8 @@
 		492EE638171F142600575B7C /* reveal_menu_icon_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */; };
 		492EE639171F142600575B7C /* reveal_menu_icon_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */; };
 		492EE63A171F142600575B7C /* reveal_menu_icon_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */; };
+		A7ED655A1730EF6B003C79F6 /* FlightDetailsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ED65581730EF6B003C79F6 /* FlightDetailsWebViewController.m */; };
+		A7ED655B1730EF6B003C79F6 /* FlightDetailsWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ED65591730EF6B003C79F6 /* FlightDetailsWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,9 @@
 		492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_landscape@2x.png"; sourceTree = "<group>"; };
 		492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reveal_menu_icon_portrait.png; sourceTree = "<group>"; };
 		492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_portrait@2x.png"; sourceTree = "<group>"; };
+		A7ED65571730EF6B003C79F6 /* FlightDetailsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsWebViewController.h; sourceTree = "<group>"; };
+		A7ED65581730EF6B003C79F6 /* FlightDetailsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsWebViewController.m; sourceTree = "<group>"; };
+		A7ED65591730EF6B003C79F6 /* FlightDetailsWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightDetailsWebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +415,9 @@
 				08ADB7871720435F003E0107 /* CheckInWebViewController.xib */,
 				08ADB7CC17207F4E003E0107 /* CustomTableViewCell.h */,
 				08ADB7CD17207F4F003E0107 /* CustomTableViewCell.m */,
+				A7ED65571730EF6B003C79F6 /* FlightDetailsWebViewController.h */,
+				A7ED65581730EF6B003C79F6 /* FlightDetailsWebViewController.m */,
+				A7ED65591730EF6B003C79F6 /* FlightDetailsWebViewController.xib */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -541,6 +549,7 @@
 				08ADB80C1721E5C7003E0107 /* singledatejson.txt in Resources */,
 				08ADB8241725C785003E0107 /* destinationjson.txt in Resources */,
 				08B31E2E17284AE000CD04FA /* calendarjson.txt in Resources */,
+				A7ED655B1730EF6B003C79F6 /* FlightDetailsWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +610,7 @@
 				08B31E3117286AC400CD04FA /* FlightDetails.m in Sources */,
 				08B31E3417286E9E00CD04FA /* Itinerary.m in Sources */,
 				08B31E371728731700CD04FA /* JSONResponseParser.m in Sources */,
+				A7ED655A1730EF6B003C79F6 /* FlightDetailsWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +731,7 @@
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
 				HEADER_SEARCH_PATHS = Kal/;
 				INFOPLIST_FILE = "sabresonic/sabresonic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -735,6 +746,7 @@
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
 				HEADER_SEARCH_PATHS = Kal/;
 				INFOPLIST_FILE = "sabresonic/sabresonic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -752,6 +764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
 				INFOPLIST_FILE = "sabresonicTests/sabresonicTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -769,6 +782,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sabresonic/sabresonic-Prefix.pch";
 				INFOPLIST_FILE = "sabresonicTests/sabresonicTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
