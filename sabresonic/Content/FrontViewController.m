@@ -12,6 +12,7 @@
 
 #import "FrontViewController.h"
 #import "PKRevealController.h"
+#import "FacebookLoginViewController.h"
 
 @interface FrontViewController()
 
@@ -20,6 +21,7 @@
 @end
 
 @implementation FrontViewController
+@synthesize popOverSL, fbLoginBtn, twtrLoginBtn;
 
 #pragma mark - View Lifecycle
 
@@ -67,6 +69,25 @@
     {
         [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController];
     }
+}
+
+-(IBAction)loginWithFBTapped:(id)sender
+{
+    FacebookLoginViewController *fbLoginVC = [[FacebookLoginViewController alloc] initWithNibName:@"FacebookLoginViewController" bundle:[NSBundle mainBundle]];
+    self.popOverSL = [[UIPopoverController alloc] initWithContentViewController:fbLoginVC];
+    [self.popOverSL presentPopoverFromRect:self.fbLoginBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+        self.popOverSL.contentViewController.contentSizeForViewInPopover = CGSizeMake(320, 200);
+    //[self.navigationController pushViewController:fbLoginVC animated:YES];
+    //[self.navigationController presentViewController:fbLoginVC animated:YES completion:nil];
+}
+
+-(IBAction)loginWithTwtrTapped:(id)sender
+{
+    FacebookLoginViewController *fbLoginVC = [[FacebookLoginViewController alloc] initWithNibName:@"FacebookLoginViewController" bundle:[NSBundle mainBundle]];
+    self.popOverSL = [[UIPopoverController alloc] initWithContentViewController:fbLoginVC];
+    [self.popOverSL presentPopoverFromRect:self.twtrLoginBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    self.popOverSL.contentViewController.contentSizeForViewInPopover = CGSizeMake(320, 190);
+    
 }
 
 #pragma mark - Autorotation

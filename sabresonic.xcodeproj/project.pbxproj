@@ -64,6 +64,13 @@
 		492EE638171F142600575B7C /* reveal_menu_icon_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */; };
 		492EE639171F142600575B7C /* reveal_menu_icon_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */; };
 		492EE63A171F142600575B7C /* reveal_menu_icon_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */; };
+		A7ABA7CD1733BCF1006E6FC9 /* FrontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ABA7CC1733BCF1006E6FC9 /* FrontViewController.xib */; };
+		A7ABA7CF1733BCFE006E6FC9 /* airplane-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A7ABA7CE1733BCFE006E6FC9 /* airplane-bg.png */; };
+		A7ABA7D31733BDE3006E6FC9 /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ABA7D11733BDE2006E6FC9 /* FacebookLoginViewController.m */; };
+		A7ABA7D41733BDE3006E6FC9 /* FacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ABA7D21733BDE2006E6FC9 /* FacebookLoginViewController.xib */; };
+		A7ABA7D61733D0C8006E6FC9 /* annotationview.png in Resources */ = {isa = PBXBuildFile; fileRef = A7ABA7D51733D0C8006E6FC9 /* annotationview.png */; };
+		A7ABA7D91733D41E006E6FC9 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ABA7D81733D41E006E6FC9 /* CustomAnnotationView.m */; };
+		A7ABA7DB1733D947006E6FC9 /* CustomAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ABA7DA1733D947006E6FC9 /* CustomAnnotationView.xib */; };
 		A7ED655A1730EF6B003C79F6 /* FlightDetailsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ED65581730EF6B003C79F6 /* FlightDetailsWebViewController.m */; };
 		A7ED655B1730EF6B003C79F6 /* FlightDetailsWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ED65591730EF6B003C79F6 /* FlightDetailsWebViewController.xib */; };
 		A7ED655E17314878003C79F6 /* FlightDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ED655D17314878003C79F6 /* FlightDetailsTableViewCell.m */; };
@@ -191,6 +198,15 @@
 		492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_landscape@2x.png"; sourceTree = "<group>"; };
 		492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reveal_menu_icon_portrait.png; sourceTree = "<group>"; };
 		492EE636171F142600575B7C /* reveal_menu_icon_portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal_menu_icon_portrait@2x.png"; sourceTree = "<group>"; };
+		A7ABA7CC1733BCF1006E6FC9 /* FrontViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrontViewController.xib; path = Content/FrontViewController.xib; sourceTree = "<group>"; };
+		A7ABA7CE1733BCFE006E6FC9 /* airplane-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-bg.png"; sourceTree = "<group>"; };
+		A7ABA7D01733BDE2006E6FC9 /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
+		A7ABA7D11733BDE2006E6FC9 /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
+		A7ABA7D21733BDE2006E6FC9 /* FacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookLoginViewController.xib; sourceTree = "<group>"; };
+		A7ABA7D51733D0C8006E6FC9 /* annotationview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = annotationview.png; sourceTree = "<group>"; };
+		A7ABA7D71733D41E006E6FC9 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		A7ABA7D81733D41E006E6FC9 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
+		A7ABA7DA1733D947006E6FC9 /* CustomAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAnnotationView.xib; sourceTree = "<group>"; };
 		A7ED65571730EF6B003C79F6 /* FlightDetailsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsWebViewController.h; sourceTree = "<group>"; };
 		A7ED65581730EF6B003C79F6 /* FlightDetailsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsWebViewController.m; sourceTree = "<group>"; };
 		A7ED65591730EF6B003C79F6 /* FlightDetailsWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightDetailsWebViewController.xib; sourceTree = "<group>"; };
@@ -260,6 +276,9 @@
 			children = (
 				08ADB776171F2F64003E0107 /* MapOverlayArcView.h */,
 				08ADB777171F2F64003E0107 /* MapOverlayArcView.m */,
+				A7ABA7D71733D41E006E6FC9 /* CustomAnnotationView.h */,
+				A7ABA7D81733D41E006E6FC9 /* CustomAnnotationView.m */,
+				A7ABA7DA1733D947006E6FC9 /* CustomAnnotationView.xib */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -365,6 +384,8 @@
 		492EE5B71714682400575B7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7ABA7D51733D0C8006E6FC9 /* annotationview.png */,
+				A7ABA7CE1733BCFE006E6FC9 /* airplane-bg.png */,
 				492EE633171F142600575B7C /* reveal_menu_icon_landscape.png */,
 				492EE634171F142600575B7C /* reveal_menu_icon_landscape@2x.png */,
 				492EE635171F142600575B7C /* reveal_menu_icon_portrait.png */,
@@ -406,6 +427,7 @@
 				08ADB775171F2F53003E0107 /* Map */,
 				492EE618171F136500575B7C /* FrontViewController.h */,
 				492EE619171F136500575B7C /* FrontViewController.m */,
+				A7ABA7CC1733BCF1006E6FC9 /* FrontViewController.xib */,
 				492EE61A171F136500575B7C /* LeftDemoViewController.h */,
 				492EE61B171F136500575B7C /* LeftDemoViewController.m */,
 				492EE61C171F136600575B7C /* LeftDemoViewController~ipad.xib */,
@@ -429,6 +451,9 @@
 				A7ED657317324781003C79F6 /* ShoppingTableViewCell.h */,
 				A7ED657417324781003C79F6 /* ShoppingTableViewCell.m */,
 				A7ED65761732488B003C79F6 /* ShoppingTableViewCell.xib */,
+				A7ABA7D01733BDE2006E6FC9 /* FacebookLoginViewController.h */,
+				A7ABA7D11733BDE2006E6FC9 /* FacebookLoginViewController.m */,
+				A7ABA7D21733BDE2006E6FC9 /* FacebookLoginViewController.xib */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -563,6 +588,11 @@
 				A7ED655B1730EF6B003C79F6 /* FlightDetailsWebViewController.xib in Resources */,
 				A7ED656017314DED003C79F6 /* FlightDetailsTableViewCell.xib in Resources */,
 				A7ED65771732488B003C79F6 /* ShoppingTableViewCell.xib in Resources */,
+				A7ABA7CD1733BCF1006E6FC9 /* FrontViewController.xib in Resources */,
+				A7ABA7CF1733BCFE006E6FC9 /* airplane-bg.png in Resources */,
+				A7ABA7D41733BDE3006E6FC9 /* FacebookLoginViewController.xib in Resources */,
+				A7ABA7D61733D0C8006E6FC9 /* annotationview.png in Resources */,
+				A7ABA7DB1733D947006E6FC9 /* CustomAnnotationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +655,8 @@
 				A7ED655A1730EF6B003C79F6 /* FlightDetailsWebViewController.m in Sources */,
 				A7ED655E17314878003C79F6 /* FlightDetailsTableViewCell.m in Sources */,
 				A7ED657517324782003C79F6 /* ShoppingTableViewCell.m in Sources */,
+				A7ABA7D31733BDE3006E6FC9 /* FacebookLoginViewController.m in Sources */,
+				A7ABA7D91733D41E006E6FC9 /* CustomAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

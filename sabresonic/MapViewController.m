@@ -15,6 +15,7 @@
 #import "PayLoadKeys.h"
 #import "FlightDetailsWebViewController.h"
 #import "FlightDetailsTableViewCell.h"
+#import "CustomAnnotationView.h"
 
 
 @interface MapViewController ()
@@ -82,13 +83,17 @@
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    /*
     // Try to dequeue an existing pin view first.
     MKPinAnnotationView*    pinView = (MKPinAnnotationView*)[airMapView
+                                                             dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+    */
+    CustomAnnotationView*    pinView = (CustomAnnotationView*)[airMapView
                                                              dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
     if (!pinView)
     {
         // If an existing pin view was not available, create one.
-        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+        pinView = [[CustomAnnotationView alloc] initWithAnnotation:annotation
                                                    reuseIdentifier:@"CustomPinAnnotationView"];
         if([[annotation subtitle] isEqualToString:@"origin"])
         {
@@ -99,7 +104,7 @@
             pinView.pinColor = MKPinAnnotationColorGreen;
         }
         pinView.animatesDrop = YES;
-        pinView.canShowCallout = YES;
+        pinView.canShowCallout = NO;
         
         // Add a detail disclosure button to the callout.
         UIButton* rightButton = [UIButton buttonWithType:
@@ -109,7 +114,8 @@
         rightButton.titleLabel.text = [annotation subtitle];
         [rightButton addTarget:self action:@selector(myShowDetailsMethod:)
               forControlEvents:UIControlEventTouchUpInside];
-        pinView.rightCalloutAccessoryView = rightButton;
+        //pinView.leftCalloutAccessoryView = imgView;
+        //pinView.rightCalloutAccessoryView = rightButton;
     }
     else
     {

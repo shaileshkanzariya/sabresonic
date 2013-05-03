@@ -13,5 +13,16 @@
 #import <UIKit/UIKit.h>
 
 @interface FrontViewController : UIViewController
+{
+    UIPopoverController *popOverSL;
+    IBOutlet UIButton *fbLoginBtn;
+    IBOutlet UIButton *twtrLoginBtn;
+}
+@property(nonatomic, strong)UIPopoverController *popOverSL;
+@property(nonatomic, strong)IBOutlet UIButton *fbLoginBtn;
+@property(nonatomic, strong)IBOutlet UIButton *twtrLoginBtn;
+
+-(IBAction)loginWithFBTapped:(id)sender;
+-(IBAction)loginWithTwtrTapped:(id)sender;
 
 @end
