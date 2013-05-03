@@ -14,8 +14,9 @@
 #import "TravelInfo.h"
 #import "TravelPointAnnotation.h"
 #import  <Social/Social.h>
+#import "FlightDetailsTableViewCell.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <FlightTableViewCellDelegate>
 {
     Route *r1,*r2,*r3;
     IBOutlet MKMapView *airMapView;

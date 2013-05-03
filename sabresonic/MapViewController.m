@@ -14,9 +14,8 @@
 #import "TravelInfo.h"
 #import "PayLoadKeys.h"
 #import "FlightDetailsWebViewController.h"
+#import "FlightDetailsTableViewCell.h"
 
-#define FLIGHT_CELL_LABEL_TAG 3000
-#define FLIGHT_CELL_LABEL_ADDITION 100
 
 @interface MapViewController ()
 
@@ -195,132 +194,67 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFlightCellIdentifier"];
+    FlightDetailsTableViewCell *cell = (FlightDetailsTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"MyFlightCellIdentifier"];
     FlightDetails *fd = [self.filteredArray objectAtIndex:indexPath.row];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyFlightCellIdentifier"];
+        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"FlightDetailsTableViewCell" owner:self options:nil];
+        cell = (FlightDetailsTableViewCell*)[nibArray objectAtIndex:0];
+        cell.delegate = self;
+        
         [cell setBackgroundColor:[UIColor clearColor]];
-        //origin
-        UILabel *orgLbl = [[UILabel alloc] init];
-        [orgLbl setTag:FLIGHT_CELL_LABEL_TAG];
-        [orgLbl setFrame:CGRectMake(5, 5, 100, 30)];
-        [orgLbl setText:@"Origin: "];
         
-        UILabel *orgValueLbl = [[UILabel alloc] init];
-        [orgValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (2*FLIGHT_CELL_LABEL_ADDITION)];
-        [orgValueLbl setFrame:CGRectMake(60, 5, 100, 30)];
-        orgValueLbl.text = fd.origin;
+        cell.originLbl.text = fd.origin;
         
-        //destination
-        UILabel *desLbl = [[UILabel alloc] init];
-        [desLbl setTag:FLIGHT_CELL_LABEL_TAG + (4*FLIGHT_CELL_LABEL_ADDITION)];
-        [desLbl setFrame:CGRectMake(100, 5, 100, 30)];
-        [desLbl setText:@"Destination: "];
+        cell.destinationLbl.text = fd.destination;
         
-        UILabel *desValueLbl = [[UILabel alloc] init];
-        [desValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (6*FLIGHT_CELL_LABEL_ADDITION)];
-        [desValueLbl setFrame:CGRectMake(195, 5, 100, 30)];
-        desValueLbl.text = fd.destination;
+        cell.departureDateLbl.text = fd.departureDate;
         
-        //departure date
-        UILabel *depDateLbl = [[UILabel alloc] init];
-        [depDateLbl setTag:FLIGHT_CELL_LABEL_TAG + (8*FLIGHT_CELL_LABEL_ADDITION)];
-        [depDateLbl setFrame:CGRectMake(5, 40, 130, 30)];
-        [depDateLbl setText:@"Departure Date: "];
+        cell.returndateLbl.text = fd.returnDate;
         
-        UILabel *depDateValueLbl = [[UILabel alloc] init];
-        [depDateValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (10*FLIGHT_CELL_LABEL_ADDITION)];
-        [depDateValueLbl setFrame:CGRectMake(150, 40, 100, 30)];
+        cell.shareBtn.tag = indexPath.row;
         
-        depDateValueLbl.text = fd.departureDate;
+        [cell.minFareLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
         
-        //retuen date
-        UILabel *retDateLbl = [[UILabel alloc] init];
-        [retDateLbl setTag:FLIGHT_CELL_LABEL_TAG + (12*FLIGHT_CELL_LABEL_ADDITION)];
-        [retDateLbl setFrame:CGRectMake(5, 75, 130, 30)];
-        [retDateLbl setText:@"Retuen Date: "];
-        
-        UILabel *retDateValueLbl = [[UILabel alloc] init];
-        [retDateValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (14*FLIGHT_CELL_LABEL_ADDITION)];
-        [retDateValueLbl setFrame:CGRectMake(150, 75, 100, 30)];
-        
-        retDateValueLbl.text = fd.returnDate;
-        
-        //min fare
-        UILabel *minFareLbl = [[UILabel alloc] init];
-        [minFareLbl setTag:FLIGHT_CELL_LABEL_TAG + (16*FLIGHT_CELL_LABEL_ADDITION)];
-        [minFareLbl setFrame:CGRectMake(5, 110, 130, 30)];
-        [minFareLbl setText:@"Min Fare: "];
-        
-        UILabel *minFareValueLbl = [[UILabel alloc] init];
-        [minFareValueLbl setTag:FLIGHT_CELL_LABEL_TAG + (18*FLIGHT_CELL_LABEL_ADDITION)];
-        [minFareValueLbl setFrame:CGRectMake(150, 110, 100, 30)];
-        
-        [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
-        
-        //share
-        UIButton *shareFB = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [shareFB addTarget:self action:@selector(shareBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-        shareFB.tag = FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION);
-        [shareFB setFrame:CGRectMake(150, 140, 100, 30)];
         if(fd.shouldShare)
         {
-            [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
+            [cell.shareBtn setTitle:@"Undo Share" forState:UIControlStateNormal];
         }
         else
         {
-            [shareFB setTitle:@"Share" forState:UIControlStateNormal];
+            [cell.shareBtn setTitle:@"Share" forState:UIControlStateNormal];
         }
-        //add to cell
-        [cell addSubview:orgLbl];
-        [cell addSubview:orgValueLbl];
-        [cell addSubview:desLbl];
-        [cell addSubview:desValueLbl];
-        [cell addSubview:depDateLbl];
-        [cell addSubview:depDateValueLbl];
-        [cell addSubview:retDateLbl];
-        [cell addSubview:retDateValueLbl];
-        [cell addSubview:minFareLbl];
-        [cell addSubview:minFareValueLbl];
-        [cell addSubview:shareFB];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-
-    UILabel *orgValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (2*FLIGHT_CELL_LABEL_ADDITION)];
-    orgValueLbl.text = fd.origin;
-
-    UILabel *desValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (6*FLIGHT_CELL_LABEL_ADDITION)];
-    desValueLbl.text = fd.destination;
     
-    UILabel *depDateValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (10*FLIGHT_CELL_LABEL_ADDITION)];
-    depDateValueLbl.text = fd.departureDate;
-
-    UILabel *retDateValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (14*FLIGHT_CELL_LABEL_ADDITION)];
-    retDateValueLbl.text = fd.returnDate;
+    cell.originLbl.text = fd.origin;
     
-    UILabel *minFareValueLbl = (UILabel*) [cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (18*FLIGHT_CELL_LABEL_ADDITION)];
-    [minFareValueLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+    cell.destinationLbl.text = fd.destination;
     
-    UIButton *shareFB =  (UIButton*)[cell viewWithTag:FLIGHT_CELL_LABEL_TAG + (20*FLIGHT_CELL_LABEL_ADDITION)];
+    cell.departureDateLbl.text = fd.departureDate;
+    
+    cell.returndateLbl.text = fd.returnDate;
+    
+    
+    [cell.minFareLbl setText:[NSString stringWithFormat:@"%@",fd.minFare]];
+    
     if(fd.shouldShare)
     {
-        [shareFB setTitle:@"Undo Share" forState:UIControlStateNormal];
+        [cell.shareBtn setTitle:@"Undo Share" forState:UIControlStateNormal];
     }
     else
     {
-        [shareFB setTitle:@"Share" forState:UIControlStateNormal];
+        [cell.shareBtn setTitle:@"Share" forState:UIControlStateNormal];
     }
-
-        return cell;
+    
+    return cell;
 }
 
 -(void)shareBtnTapped:(id)sender
 {
     UIButton *shareBtn = (UIButton*)sender;
-    UITableViewCell *cell = (UITableViewCell*) [shareBtn superview];
-    int selectedRow = [self.flightInfoTableView indexPathForCell:cell].row;
+    int selectedRow = shareBtn.tag;
+
     NSLog(@"Row = %d", selectedRow);
     FlightDetails *selectedFlight = [self.filteredArray objectAtIndex:selectedRow];
     if(selectedFlight.shouldShare == NO)
@@ -378,7 +312,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 175;
+    return 290;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

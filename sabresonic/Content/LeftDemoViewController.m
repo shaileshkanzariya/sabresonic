@@ -10,11 +10,14 @@
 #import "PKRevealController.h"
 #import "MapViewController.h"
 #import "AppDelegate.h"
-#import "CustomTableViewCell.h"
+#import "ShoppingTableViewCell.h"
+
+#define MINIMUM_HEIGHT 5
+#define MAXIMUM_HEIGHT 45
 
 @implementation LeftDemoViewController
-@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded, customCell, selectStartDateBtn, calendarPopover, kalVC;
-@synthesize isStartDateSelected, selectReturnDateBtn;
+@synthesize tableViewDataSourceArray, leftDemoTableView, selectedRawIndexPath, isCellExpanded,  calendarPopover, kalVC;
+@synthesize isStartDateSelected, selectedIndex, selectStartDateBtn, selectReturnDateBtn;
 
 #pragma mark - View Lifecycle
 
@@ -25,6 +28,7 @@
     //self.kalVC = [[KalViewController alloc] init];
     //[self.kalVC.view setFrame:CGRectMake(10, 30, 0, 0)];
     self.isCellExpanded = NO;
+    self.selectedIndex = -1;
     self.tableViewDataSourceArray = [NSArray arrayWithObjects:@"Shop/Book",@"Check-in", nil];
     
     // Each view can dynamically specify the min/max width that can be revealed.
@@ -67,34 +71,109 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+        static NSString *SHOPPING_CELL_IDENTIFIER = @"ShoppingCellIdentifier";
+        static NSString *NORMAL_CELL_IDENTIFIER = @"NormalCellIdentifier";
     
-            if(indexPath.row == 0 && self.isCellExpanded == YES)
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NORMAL_CELL_IDENTIFIER];
+
+        if(cell == nil)
+        {
+            ShoppingTableViewCell *shoppingCell = (ShoppingTableViewCell*) [tableView dequeueReusableCellWithIdentifier:SHOPPING_CELL_IDENTIFIER];
+            if(shoppingCell == nil)
             {
-                /*
-                CustomTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"MyCustomIdentifier"];
-                if(customCell == nil)
+                if(indexPath.row == 0) //new shopping cell
                 {
-                    customCell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCustomIdentifier"];
+                    NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"ShoppingTableViewCell" owner:self options:nil];
+                    shoppingCell = (ShoppingTableViewCell*)[nibArray objectAtIndex:0];
+                    if(self.isCellExpanded == YES)
+                    {
+                        [self setCellChidrenHeightToOriginal:(ShoppingTableViewCell*)shoppingCell];
+                        shoppingCell.textLabel.text = nil;
+                    }
+                    else
+                    {
+                        [self setCellChidrenHeightToZero:(ShoppingTableViewCell*) shoppingCell];
+                        shoppingCell.textLabel.text = [self.tableViewDataSourceArray objectAtIndex:indexPath.row];
+                    }
+                    shoppingCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    shoppingCell.backgroundColor = [UIColor clearColor];
+                    shoppingCell.delegate = self;
+                    return  shoppingCell;
                 }
-                [self.customCell addSubview:self.kalVC.view];
-                */
-                return self.customCell;
+                else //new normal cell
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NORMAL_CELL_IDENTIFIER];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.backgroundColor = [UIColor clearColor];
+                    cell.textLabel.text = [self.tableViewDataSourceArray objectAtIndex:indexPath.row];
+                    return cell;
+                }
             }
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
-            if (cell == nil)
+            else //shopping cell dequeued
             {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyIdentifier"];
+                if(self.isCellExpanded == YES)
+                {
+                    [self setCellChidrenHeightToOriginal:(ShoppingTableViewCell*)cell];
+                }
+                else
+                {
+                    [self setCellChidrenHeightToZero:(ShoppingTableViewCell*) cell];
+                }
+
             }
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.backgroundColor = [UIColor clearColor];
-            cell.textLabel.text = [self.tableViewDataSourceArray objectAtIndex:indexPath.row];
+            
+        }
+        else //dequeue normal cell
+        {
             return cell;
+        }
+    return nil;
     // NSString *path = [[NSBundle  mainBundle] pathForResource:[item objectForKey:@"imageKey"] ofType:@"png"];
     //UIImage *theImage = [UIImage imageWithContentsOfFile:path];
     //cell.imageView.image = theImage;
-
 }
 
+-(void)setCellChidrenHeightToZero:(ShoppingTableViewCell*)cell
+{
+    cell.fromLbl.hidden = YES;
+    cell.fromValueLbl.hidden = YES;
+    cell.startLbl.hidden = YES;
+    cell.endLbl.hidden = YES;
+    cell.selectStartDateBtn.hidden = YES;
+    cell.selectReturndateBtn.hidden = YES;
+    cell.searchBtn.hidden = YES;
+    
+    /*
+    cell.fromLbl.frame = CGRectMake(cell.fromLbl.frame.origin.x, cell.fromLbl.frame.origin.y, cell.fromLbl.frame.size.width, MINIMUM_HEIGHT);
+    cell.fromValueLbl.frame = CGRectMake(cell.fromValueLbl.frame.origin.x, cell.fromValueLbl.frame.origin.y, cell.fromValueLbl.frame.size.width, MINIMUM_HEIGHT);
+    cell.startLbl.frame = CGRectMake(cell.startLbl.frame.origin.x, cell.startLbl.frame.origin.y, cell.startLbl.frame.size.width, MINIMUM_HEIGHT);
+    cell.endLbl.frame = CGRectMake(cell.endLbl.frame.origin.x, cell.endLbl.frame.origin.y, cell.endLbl.frame.size.width, MINIMUM_HEIGHT);
+    cell.selectStartDateBtn.frame = CGRectMake(cell.selectStartDateBtn.frame.origin.x, cell.selectStartDateBtn.frame.origin.y, cell.selectStartDateBtn.frame.size.width, MINIMUM_HEIGHT);
+    cell.selectReturndateBtn.frame = CGRectMake(cell.selectReturndateBtn.frame.origin.x, cell.selectReturndateBtn.frame.origin.y, cell.selectReturndateBtn.frame.size.width, MINIMUM_HEIGHT);
+    cell.searchBtn.frame = CGRectMake(cell.searchBtn.frame.origin.x, cell.searchBtn.frame.origin.y, cell.searchBtn.frame.size.width, MINIMUM_HEIGHT);
+    */
+}
+
+-(void)setCellChidrenHeightToOriginal:(ShoppingTableViewCell*)cell
+{
+    cell.fromLbl.hidden = NO;
+    cell.fromValueLbl.hidden = NO;
+    cell.startLbl.hidden = NO;
+    cell.endLbl.hidden = NO;
+    cell.selectStartDateBtn.hidden = NO;
+    cell.selectReturndateBtn.hidden = NO;
+    cell.searchBtn.hidden = NO;
+    
+    /*
+    cell.fromLbl.frame = CGRectMake(cell.fromLbl.frame.origin.x, cell.fromLbl.frame.origin.y, cell.fromLbl.frame.size.width, MAXIMUM_HEIGHT);
+    cell.fromValueLbl.frame = CGRectMake(cell.fromValueLbl.frame.origin.x, cell.fromValueLbl.frame.origin.y, cell.fromValueLbl.frame.size.width, MAXIMUM_HEIGHT);
+    cell.startLbl.frame = CGRectMake(cell.startLbl.frame.origin.x, cell.startLbl.frame.origin.y, cell.startLbl.frame.size.width, MAXIMUM_HEIGHT);
+    cell.endLbl.frame = CGRectMake(cell.endLbl.frame.origin.x, cell.endLbl.frame.origin.y, cell.endLbl.frame.size.width, MAXIMUM_HEIGHT);
+    cell.selectStartDateBtn.frame = CGRectMake(cell.selectStartDateBtn.frame.origin.x, cell.selectStartDateBtn.frame.origin.y, cell.selectStartDateBtn.frame.size.width, MAXIMUM_HEIGHT);
+    cell.selectReturndateBtn.frame = CGRectMake(cell.selectReturndateBtn.frame.origin.x, cell.selectReturndateBtn.frame.origin.y, cell.selectReturndateBtn.frame.size.width, MAXIMUM_HEIGHT);
+    cell.searchBtn.frame = CGRectMake(cell.searchBtn.frame.origin.x, cell.searchBtn.frame.origin.y, cell.searchBtn.frame.size.width, MAXIMUM_HEIGHT);
+     */
+}
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,34 +217,40 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        if(indexPath.row == 0)
+        if(indexPath.row == 0 && self.isCellExpanded == YES)
         {
-            if(self.selectedRawIndexPath && indexPath.row == selectedRawIndexPath.row && self.isCellExpanded == YES)
-            {
-            
-                return 250;
-            }
-            else
-            {
-                return 100;
-            }
+            return 250;
         }
         else
         {
             return 100;
         }
+    return 100;
+}
+
+-(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0)
+    {
+        ShoppingTableViewCell *cell = (ShoppingTableViewCell*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]; //get custom cell
+        NSLog(@"height = %f",cell.frame.size.height);
+        if(cell.frame.size.height > 100)
+        {
+            self.isCellExpanded = YES;
+        }
+        else
+        {
+            self.isCellExpanded = NO;
+        }
+    }
+    return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        //save selected indexpath
-        self.selectedRawIndexPath = indexPath;
-
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]; //get custom cell
-        NSLog(@"height = %f",cell.frame.size.height);
         if(indexPath.row == 0)
         {
-            if(cell.frame.size.height > 100)
+            if(self.isCellExpanded == YES)
             {
                 self.isCellExpanded = NO;
             }
@@ -173,12 +258,11 @@
             {
                 self.isCellExpanded = YES;
             }
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
-        else
-        {
-            self.isCellExpanded = NO;
-        }
-        [tableView reloadData];
+        //save selected indexpath
+        self.selectedRawIndexPath = indexPath;
+        //[tableView reloadData];
         /*
         if(indexPath.row == 0)
         {
@@ -192,16 +276,17 @@
             }
         }
         */
-    
+        /*
         [tableView beginUpdates];
         [tableView endUpdates];
-    
+         */
         switch (indexPath.row)
         {
             case 0: //Shop/Book
             {
                 AppDelegate *appDel = (AppDelegate*) [UIApplication sharedApplication].delegate;
                 [self.revealController setFrontViewController:appDel.mapViewNavController];
+                //[appDel.revealController.frontViewController.navigationController pushViewController:appDel.mapViewNavController animated:NO];
                 break;
             }
             case 1: //Checkin
@@ -216,19 +301,23 @@
         }
 }
 
-- (IBAction)selectStartDateBtnTapped
+- (void)selectStartDateBtnTapped:(id)sender
 {
+    UIButton *strtBtn = (UIButton*)sender;
+    self.selectStartDateBtn = strtBtn;
     self.isStartDateSelected = YES;
-    [self showCalendarPopover];
+    [self showCalendarPopover:strtBtn];
 }
 
-- (IBAction)selectReturnDateBtnTapped
+- (void)selectReturnDateBtnTapped:(id)sender
 {
+    UIButton *strtBtn = (UIButton*)sender;
+    self.selectReturnDateBtn = strtBtn;
     self.isStartDateSelected = NO;
-    [self showCalendarPopover];
+    [self showCalendarPopover:strtBtn];
 }
 
--(void)showCalendarPopover
+- (void)showCalendarPopover:(UIButton*)selectedBtn
 {
     self.kalVC = [[KalViewController alloc] initWithFrame:CGRectMake(5, 10, 330, 300)];
     
@@ -237,11 +326,11 @@
     self.calendarPopover.popoverContentSize = CGSizeMake(330, 240);
     if(self.isStartDateSelected)
     {
-        [self.calendarPopover presentPopoverFromRect:self.selectStartDateBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [self.calendarPopover presentPopoverFromRect:selectedBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
     else
     {
-        [self.calendarPopover presentPopoverFromRect:self.selectReturnDateBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [self.calendarPopover presentPopoverFromRect:selectedBtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
 }
 
@@ -250,13 +339,16 @@
 {
     NSDateFormatter *formatter  = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"]; //yyyy-MM-dd HH:mm:ss zzz
+    NSLog(@"Date: %@", [formatter stringFromDate:self.kalVC.selectedFromDate]);
     if(self.isStartDateSelected)
     {
-        selectStartDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
+        if(self.selectStartDateBtn != nil)
+            self.selectStartDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
     }
     else
     {
-        selectReturnDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
+        if(self.selectReturnDateBtn != nil)
+            self.selectReturnDateBtn.titleLabel.text = [formatter stringFromDate:self.kalVC.selectedFromDate];
     }
 }
 #pragma mark - Autorotation
@@ -279,6 +371,23 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return YES;
+}
+
+#pragma mark ShoppingTableViewCellDelegate Methods
+
+-(void)selectStartDateButtonTapped:(id)sender
+{
+    [self selectStartDateBtnTapped:sender];
+}
+
+-(void)selectReturnDateButtonTapped:(id)sender
+{
+    [self selectReturnDateBtnTapped:sender];
+}
+
+-(void)searchDateButtonTapped:(id)sender
+{
+    
 }
 
 @end
