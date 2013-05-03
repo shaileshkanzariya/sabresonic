@@ -22,7 +22,6 @@
     BOOL isStartDateSelected;
     UIButton *selectStartDateBtn;
     UIButton *selectReturnDateBtn;
-    NSInteger selectedIndex;
 }
 #pragma mark - Propertires
 @property(nonatomic, strong)NSArray *tableViewDataSourceArray;
@@ -34,7 +33,6 @@
 @property(nonatomic, strong)UIPopoverController *calendarPopover;
 @property(nonatomic, strong)KalViewController *kalVC;
 @property(nonatomic, assign)BOOL isStartDateSelected;
-@property(nonatomic, assign)NSInteger selectedIndex;
 
 #pragma mark - Methods
 - (IBAction)showOppositeView:(id)sender;

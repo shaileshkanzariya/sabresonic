@@ -42,6 +42,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareOnFBNotificationReceived:) name:SHARE_ON_TWITTER_NOTIFICATION object:nil];
     
     [airMapView.delegate self];
+    airMapView.mapType = MKMapTypeHybrid;
 	
     UIImage *revealImagePortrait = [UIImage imageNamed:@"reveal_menu_icon_portrait"];
     UIImage *revealImageLandscape = [UIImage imageNamed:@"reveal_menu_icon_landscape"];
